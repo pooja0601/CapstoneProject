@@ -1,0 +1,41 @@
+<mat-toolbar color="toolbar">
+  <mat-toolbar-row class="toolbar">
+    <img src="../assets/images/unisyd.jpg" class="uniSydImage" />
+    <span class="spacer"></span>
+    <div>
+      <button
+        mat-icon-button
+        [matMenuTriggerFor]="menu"
+        class="notificationsBtn"
+        (click)="clearBadgeCount()"
+      >
+        <mat-icon>notifications</mat-icon>
+        <span class="badge" *ngIf="badgeCount > 0">{{ badgeCount }}</span>
+      </button>
+      <mat-menu #menu="matMenu">
+        <mat-card
+          *ngFor="let not of notifications"
+          class="example-card"
+          (click)="openNotificationPage()"
+        >
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>{{ not.emailContent }}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p>Sent by : {{ not.sender }}</p>
+          </mat-card-content>
+        </mat-card>
+
+        <button mat-menu-item>
+          <mat-icon>visibility</mat-icon>
+          <span>See All Notifications</span>
+        </button>
+      </mat-menu>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="container">
+  <p>I am here</p>
+</div>

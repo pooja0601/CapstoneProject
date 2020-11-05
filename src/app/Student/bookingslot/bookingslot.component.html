@@ -1,0 +1,78 @@
+<!--Main Navigation-->
+<header>
+  <nav class="navbar fixed-top navbar-expand-lg red scrolling-navbar">
+    <strong>
+      <span class="material-icons">menu</span>
+    </strong>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent2"
+      aria-controls="navbarSupportedContent2"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <strong>
+            Book Presentation Slots
+          </strong>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<div style="margin-top: 5%;">
+  <form [formGroup]="bookingForm">
+    <br />
+
+    <div class="matcard">
+      <mat-card
+        style="text-align: center;"
+        style="width: 18rem;"
+        *ngFor="let v of view"
+        class="example-card"
+      >
+        <mat-card-header>
+          <mat-card-title
+            >{{ "Slot: " + v.id }}
+            <!-- <mat-radio-button [disabled]="v.group_name != null ">{{"Slot: " + v.id}}</mat-radio-button> -->
+          </mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+          <p>
+            {{ "Slot date: " + v.session_date }}
+          </p>
+          <p>
+            {{ "Slot time: " + v.session_starttime + "-" + v.session_endtime }}
+          </p>
+          <p>
+            {{ "Slot location: " + v.session_location }}
+          </p>
+          <p>
+            {{ "Booked by: " + v.group_name }}
+          </p>
+        </mat-card-content>
+
+        <mat-card-actions align="end">
+          <button
+            [disabled]="v.group_name != null"
+            mat-raised-button
+            class="button"
+            mat-button
+            [routerLink]="['/viewslot', v.id]"
+            (click)="confirm(v.id)"
+          >
+            Book
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </form>
+</div>

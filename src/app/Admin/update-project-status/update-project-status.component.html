@@ -1,0 +1,147 @@
+<!--<div>
+  <table>
+
+    <mat-card *ngFor="let v of view">
+
+        <tr>
+          <th>Project Id</th>
+          <th>Title</th>
+          <th>supervisor</th>
+          <th>description</th>
+          <th>Unit code</th>
+          <th>
+            <div class="dropdown" style="float:right;">
+              <button class="dropbtn">Options</button>
+              <div class="dropdown-content">
+                <a> <button (click)="submit(v.id)">Delete</button> </a>
+
+
+                <a> <button [disabled]="v.unitCode == null" (click)="approve(v.id)">Approve</button> </a>
+
+                <a> <button (click)="reject(v.id)">Reject</button> </a>
+
+
+                <a> <button (click)="edit(v.id)">Edit</button> </a>
+
+
+
+              </div>
+            </div>
+          </th>
+
+        <tr>
+          <td>
+            {{v.project_id}}
+          </td>
+          <td>
+            {{v.title}}
+          </td>
+          <td>{{v.supervisorNames}}</td>
+          <td><p>{{v.description}}</p></td>
+          <td>
+            {{v.unitCode}}
+          </td>
+          <td>
+            {{v.status}}
+          </td>
+        </tr>
+
+    </mat-card>
+    </table>
+  </div>-->
+<!--Main Navigation-->
+<header>
+
+  <nav class="navbar fixed-top navbar-expand-lg red scrolling-navbar">
+
+    <strong>
+      <span class="material-icons">menu</span>
+    </strong>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent2"
+            aria-controls="navbarSupportedContent2" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <strong>
+            List of projects
+          </strong>
+        </li>
+
+      </ul>
+    </div>
+  </nav>
+
+</header>
+<!--Main Navigation-->
+<div class="container text-center">
+  <div fxLayout fxLayoutAlign="center center">
+    <mat-form-field>
+      <input matInput type="text" (keyup)="doFilter($event.target.value)" placeholder="Search Project">
+    </mat-form-field>
+  </div>
+  <table mat-table
+         [dataSource]="dataSource"
+         #mytable
+         class="my-table mat-elevation-z8" matSort>
+    <!--- Note that these columns can be defined in any order.
+  The actual rendered columns are set as a property on the row definition" -->
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Project id</th>
+      <td mat-cell *matCellDef="let project">{{ project.project_id }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef style="text-align:center;" class="titlecol">Title</th>
+      <td mat-cell *matCellDef="let project">{{ project.title }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="supervisorNames">
+      <th mat-header-cell *matHeaderCellDef class="supervisorsNamecol">Supervisors Name</th>
+      <td mat-cell *matCellDef="let project">{{ project.supervisorNames }}</td>
+    </ng-container>&nbsp;&nbsp;
+
+    <ng-container matColumnDef="ProjectMode">
+      <th mat-header-cell *matHeaderCellDef>Mode</th>
+      <td mat-cell *matCellDef="let project">{{ project.mode }}</td>
+    </ng-container>
+    <ng-container matColumnDef="unitCode">
+      <th mat-header-cell *matHeaderCellDef>Unit Code</th>
+      <td mat-cell *matCellDef="let project">{{ project.unitCode }}</td>
+    </ng-container>
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef>Status</th>
+      <td mat-cell *matCellDef="let project">{{ project.status }}</td>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef class="actionscol">Action</th>
+      <td mat-cell *matCellDef="let element" class="action-link">
+        <a mat-icon-button color="primary" (click)="edit(element.id)">view</a> |
+        <a mat-icon-button color="primary" (click)="clone(element.id,element.mode,element.project_id,element.unitCode)"
+           title="duplicate"><mat-icon>control_point_duplicate</mat-icon></a> |
+        <a mat-icon-button color="warn" (click)="submit(element.id)"><mat-icon>delete</mat-icon></a>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table><br />
+  <ng-template #deleteAPIDialog>
+    <h2 matDialogTitle> Are you sure you want to delete the project?</h2>
+    <mat-dialog-actions align="end">
+      <button mat-raised-button matDialogClose="no">No</button>
+      <button mat-raised-button matDialogClose="yes" color="primary">Yes</button>
+    </mat-dialog-actions>
+  </ng-template>
+  <ng-template #DuplicateAPIDialog>
+    <h2 matDialogTitle> Are you sure you want to duplicate the project?</h2>
+    <mat-dialog-actions align="end">
+      <button mat-raised-button matDialogClose="no">No</button>
+      <button mat-raised-button matDialogClose="yes" color="primary">Yes</button>
+    </mat-dialog-actions>
+  </ng-template>
+  <mat-paginator [pageSizeOptions]="[5, 10, 15]"
+                 showFirstLastButtons></mat-paginator>
+</div>

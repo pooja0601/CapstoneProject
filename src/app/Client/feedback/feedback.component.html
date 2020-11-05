@@ -1,0 +1,155 @@
+<header>
+  <nav class="navbar fixed-top navbar-expand-lg red scrolling-navbar">
+    <strong>
+      <span class="material-icons">menu</span>
+    </strong>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent2"
+      aria-controls="navbarSupportedContent2"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <strong>
+            Feedback Form
+          </strong>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<div class="container">
+  <h6 style="text-align: center;">
+    <!-- If you have a suggestion or any feedback for {{ user }}, we'd love to hear
+    it -->
+    End semester final delivery form, client's feedback.
+  </h6>
+  <div id="wrapper">
+    <div id="left">
+      <div class="row">
+        <!-- <div class="col-sm-12"> -->
+        <label style="margin-top: 1.5%; margin-right: 10.5%;">Design</label>
+
+        <ul
+          class="list-inline rating-list"
+          *ngFor="let star of stars"
+          style="display: inline-block;"
+        >
+          <li
+            (click)="displayStar(star)"
+            [ngClass]="{ selected: star <= selectedDisplay }"
+          >
+            <span class="material-icons">
+              star
+            </span>
+          </li>
+        </ul>
+        <input
+          #displaycomment
+          required
+          type="text"
+          style="margin-left: 5%; margin-top: 1%; height: 30px;"
+          placeholder="comments/notes"
+        />
+        <!-- </div> -->
+      </div>
+    </div>
+    <div id="right">
+      <div class="row">
+        <label style="margin-top: 1.5%; margin-right: 4.6%;"
+          >Functionalities</label
+        >
+        <!-- <div class="col-sm-20"> -->
+        <ul
+          class="list-inline rating-list"
+          *ngFor="let star of stars"
+          style="display: inline-block;"
+        >
+          <li
+            (click)="funStar(star)"
+            [ngClass]="{ selected: star <= selectedFun }"
+          >
+            <span class="material-icons">
+              star
+            </span>
+          </li>
+        </ul>
+        <input
+          #funcomment
+          required
+          type="text"
+          style="margin-left: 5%; margin-top: 1%; height: 30px;"
+          placeholder="comments/notes"
+        />
+        <!-- </div> -->
+      </div>
+    </div>
+    <div id="rightMost">
+      <div class="row">
+        <label style="margin-top: 1.5%; margin-right: 6%;">Performance</label>
+
+        <!-- <div class="col-sm-12"> -->
+        <ul
+          class="list-inline rating-list"
+          *ngFor="let star of stars"
+          style="display: inline-block;"
+        >
+          <li
+            (click)="perfStar(star)"
+            [ngClass]="{ selected: star <= selectedPerf }"
+          >
+            <span class="material-icons">
+              star
+            </span>
+          </li>
+        </ul>
+        <input
+          #percomment
+          required
+          type="text"
+          style="margin-left: 5%; margin-top: 1%; height: 30px;"
+          placeholder="comments/notes"
+        />
+        <!-- </div> -->
+      </div>
+    </div>
+  </div>
+  <label for="msg">Please leave your feedback below</label>
+  <div>
+    <textarea
+      rows="5"
+      minlength="8"
+      maxlength="100"
+      placeholder="Write your valuable feedback"
+      #someInput
+      required
+      class="comments"
+    ></textarea>
+  </div>
+
+  <!-- <div class="form-group text-right"> -->
+  <button
+    class="submit"
+    mat-raised-button
+    type="submit"
+    (click)="
+      submit(
+        someInput.value,
+        displaycomment.value,
+        funcomment.value,
+        percomment.value
+      )
+    "
+  >
+    Submit
+  </button>
+  <!-- </div> -->
+</div>

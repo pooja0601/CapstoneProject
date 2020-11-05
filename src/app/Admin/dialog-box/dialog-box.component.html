@@ -1,0 +1,27 @@
+
+<h1 mat-dialog-title> <strong>{{action}}</strong> groups</h1>
+<div mat-dialog-content>
+
+    <mat-form-field *ngIf="action != 'Delete'; else elseTemplate">
+    <input placeholder="{{action}} Group Name" matInput [(ngModel)]="local_data.group_name" required [formControl]="nameFormControl" [errorStateMatcher]="matcher" >
+    <mat-error *ngIf="nameFormControl.hasError('required')">
+      Group Name is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+
+
+  <ng-template #elseTemplate>
+    Sure to delete <b>{{local_data.group_name}}</b>?
+  </ng-template>
+</div>
+<div mat-dialog-actions *ngIf="action != 'Delete'; else delTemplate">
+  <button mat-button [disabled]="nameFormControl.hasError('required')" (click)="doAction()">{{action}}</button>
+  <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Cancel</button>
+</div>
+<ng-template #delTemplate>
+  <div mat-dialog-actions>
+    <button mat-button (click)="doAction()">{{action}}</button>
+    <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Cancel</button>
+  </div>
+</ng-template>

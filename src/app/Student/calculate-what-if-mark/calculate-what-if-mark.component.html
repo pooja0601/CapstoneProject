@@ -1,0 +1,725 @@
+<!--Main Navigation-->
+<header>
+  <nav class="navbar fixed-top navbar-expand-lg red scrolling-navbar">
+    <strong>
+      <span class="material-icons">menu</span>
+    </strong>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent2"
+      aria-controls="navbarSupportedContent2"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <strong>
+            Mark calculation
+          </strong>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+<!--Main Navigation-->
+
+<div class="container">
+  <mat-card>
+    <form [formGroup]="profileForm" (submit)="submitForm()">
+      <table id="grades_summary" class="editable ic-Table ic-Table--hover-row">
+        <caption class="screenreader-only">
+          You can view your grades based on What-If scores so that you know how
+          grades will be affected by upcoming or resubmitted assignments. You
+          can test scores for an assignment that already includes a score, or an
+          assignment that has yet to be graded.
+        </caption>
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col" class="assignment_score">Score</th>
+            <th scope="col" class="possible">Out of</th>
+            <th scope="col" class="possible">What if</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            class="student_assignment assignment_graded editable"
+            data-muted="false"
+            id="submission_185178"
+          >
+            <th class="title" scope="row">
+              <a>W3 - Individual Report</a>
+            </th>
+            <td class="due">
+              <div *ngIf="grade3">{{ grade3 }}</div>
+            </td>
+            <td class="status" scope="row">
+              30
+            </td>
+            <td
+              class="assignment_score"
+              title="Click to test a different score"
+            >
+              <mat-form-field class="title" appearance="fill">
+                <input
+                  type="number"
+                  min="0"
+                  matInput
+                  formControlName="IndReport3"
+                />
+              </mat-form-field>
+            </td>
+            <br />
+          </tr>
+
+          <tr
+            class="student_assignment assignment_graded editable"
+            data-muted="false"
+            id="submission_185178"
+          >
+            <th class="title" scope="row">
+              <a>W4 - Individual Report</a>
+            </th>
+            <td class="due">
+              <div *ngIf="grade4">{{ grade4 }}</div>
+            </td>
+            <td class="status" scope="row">
+              30
+            </td>
+            <td
+              class="assignment_score"
+              title="Click to test a different score"
+            >
+              <mat-form-field class="title" appearance="fill">
+                <input
+                  type="number"
+                  min="0"
+                  matInput
+                  formControlName="IndReport4"
+                />
+              </mat-form-field>
+            </td>
+          </tr>
+
+          <tr
+            class="student_assignment assignment_graded editable"
+            data-muted="false"
+            id="submission_185178"
+          >
+            <th class="title" scope="row">
+              <a>W5 - Individual Summary & Report</a>
+            </th>
+            <td class="due">
+              <div *ngIf="grade5">{{ grade5 }}</div>
+            </td>
+            <td class="status" scope="row">
+              40
+            </td>
+            <td
+              class="assignment_score"
+              title="Click to test a different score"
+            >
+              <mat-form-field class="title" appearance="fill">
+                <input
+                  type="number"
+                  min="0"
+                  matInput
+                  formControlName="IndReport5"
+                />
+              </mat-form-field>
+            </td>
+          </tr>
+
+          <tr
+            class="student_assignment assignment_graded editable"
+            data-muted="false"
+            id="submission_185178"
+          >
+            <th class="title" scope="row">
+              <a>W5 - Group Proposal Report</a>
+            </th>
+            <td class="due">
+              {{ GroupProposal5grade }}
+            </td>
+            <td class="status" scope="row">
+              100
+            </td>
+            <td
+              class="assignment_score"
+              title="Click to test a different score"
+            >
+              <mat-form-field class="title" appearance="fill">
+                <input
+                  type="number"
+                  min="0"
+                  matInput
+                  formControlName="GroupProposal5"
+                />
+              </mat-form-field>
+            </td>
+          </tr>
+
+          <tr
+            class="student_assignment assignment_graded editable"
+            data-muted="false"
+            id="submission_185178"
+          >
+            <th class="title" scope="row">
+              <a>W6 - Individual Report</a>
+            </th>
+            <td class="due">
+              {{ grade6 }}
+            </td>
+            <td class="status" scope="row">
+              30
+            </td>
+            <td
+              class="assignment_score"
+              title="Click to test a different score"
+            >
+              <mat-form-field class="title" appearance="fill">
+                <input
+                  type="number"
+                  min="0"
+                  matInput
+                  formControlName="IndReport6"
+                />
+              </mat-form-field>
+            </td>
+          </tr>
+
+          <tr
+            class="student_assignment assignment_graded editable"
+            data-muted="false"
+            id="submission_185178"
+          >
+            <th class="title" scope="row">
+              <a>W7 - Individual Report</a>
+            </th>
+            <td class="due">
+              {{ grade7 }}
+            </td>
+            <td class="status" scope="row">
+              30
+            </td>
+            <td
+              class="assignment_score"
+              title="Click to test a different score"
+            >
+              <mat-form-field class="title" appearance="fill">
+                <input
+                  type="number"
+                  min="0"
+                  matInput
+                  formControlName="IndReport7"
+                />
+              </mat-form-field>
+            </td>
+          </tr>
+
+          <tr
+            class="student_assignment assignment_graded editable"
+            data-muted="false"
+            id="submission_185178"
+          >
+            <th class="title" scope="row">
+              <a>W8 - Individual Summary & Report</a>
+            </th>
+            <td class="due">
+              {{ grade8 }}
+            </td>
+            <td class="status" scope="row">
+              40
+            </td>
+            <td
+              class="assignment_score"
+              title="Click to test a different score"
+            >
+              <mat-form-field class="title" appearance="fill">
+                <input
+                  type="number"
+                  min="0"
+                  matInput
+                  formControlName="IndReport8"
+                />
+              </mat-form-field>
+            </td>
+          </tr>
+
+          <tr
+            class="student_assignment assignment_graded editable"
+            data-muted="false"
+            id="submission_185178"
+          >
+            <th class="title" scope="row">
+              <a>W9 - Group Progress Report</a>
+            </th>
+            <td class="due">
+              {{ GroupProgress9Grade }}
+            </td>
+            <td class="status" scope="row">
+              100
+            </td>
+            <td
+              class="assignment_score"
+              title="Click to test a different score"
+            >
+              <mat-form-field class="title" appearance="fill">
+                <input
+                  type="number"
+                  min="0"
+                  matInput
+                  formControlName="GroupProgress9"
+                />
+              </mat-form-field>
+            </td>
+          </tr>
+
+          <tr
+            class="student_assignment assignment_graded editable"
+            data-muted="false"
+            id="submission_185178"
+          >
+            <th class="title" scope="row">
+              <a>W9 - Individual Report</a>
+            </th>
+            <td class="due">
+              {{ grade9 }}
+            </td>
+            <td class="status" scope="row">
+              15
+            </td>
+            <td
+              class="assignment_score"
+              title="Click to test a different score"
+            >
+              <mat-form-field class="title" appearance="fill">
+                <input
+                  type="number"
+                  min="0"
+                  matInput
+                  formControlName="IndReport9"
+                />
+              </mat-form-field>
+            </td>
+          </tr>
+
+          <tr
+            class="student_assignment assignment_graded editable"
+            data-muted="false"
+            id="submission_185178"
+          >
+            <th class="title" scope="row">
+              <a>W10 - Individual Report</a>
+            </th>
+            <td class="due">
+              {{ grade10 }}
+            </td>
+            <td class="status" scope="row">
+              15
+            </td>
+            <td
+              class="assignment_score"
+              title="Click to test a different score"
+            >
+              <mat-form-field class="title" appearance="fill">
+                <input
+                  type="number"
+                  min="0"
+                  matInput
+                  formControlName="IndReport10"
+                />
+              </mat-form-field>
+            </td>
+          </tr>
+
+          <tr
+            class="student_assignment assignment_graded editable"
+            data-muted="false"
+            id="submission_185178"
+          >
+            <th class="title" scope="row">
+              <a>W11 - Individual Report</a>
+            </th>
+            <td class="due">
+              {{ grade11 }}
+            </td>
+            <td class="status" scope="row">
+              15
+            </td>
+            <td
+              class="assignment_score"
+              title="Click to test a different score"
+            >
+              <mat-form-field class="title" appearance="fill">
+                <input
+                  type="number"
+                  min="0"
+                  matInput
+                  formControlName="IndReport11"
+                />
+              </mat-form-field>
+            </td>
+          </tr>
+
+          <tr
+            class="student_assignment assignment_graded editable"
+            data-muted="false"
+            id="submission_185178"
+          >
+            <th class="title" scope="row">
+              <a>W12 - Individual Report</a>
+            </th>
+            <td class="due">
+              {{ grade12 }}
+            </td>
+            <td class="status" scope="row">
+              15
+            </td>
+            <td
+              class="assignment_score"
+              title="Click to test a different score"
+            >
+              <mat-form-field class="title" appearance="fill">
+                <input
+                  type="number"
+                  min="0"
+                  matInput
+                  formControlName="IndReport12"
+                />
+              </mat-form-field>
+            </td>
+          </tr>
+
+          <tr
+            class="student_assignment assignment_graded editable"
+            data-muted="false"
+            id="submission_185178"
+          >
+            <th class="title" scope="row">
+              <a>W13 - Individual Summary & Report</a>
+            </th>
+            <td class="due">
+              {{ grade13 }}
+            </td>
+            <td class="status" scope="row">
+              40
+            </td>
+            <td
+              class="assignment_score"
+              title="Click to test a different score"
+            >
+              <mat-form-field class="title" appearance="fill">
+                <input
+                  type="number"
+                  min="0"
+                  matInput
+                  formControlName="IndReport13"
+                />
+              </mat-form-field>
+            </td>
+          </tr>
+
+          <tr
+            class="student_assignment assignment_graded editable"
+            data-muted="false"
+            id="submission_185178"
+          >
+            <th class="title" scope="row">
+              <a>Group Final Report</a>
+            </th>
+            <td class="due">
+              {{ FinalGroup13grade }}
+            </td>
+            <td class="status" scope="row">
+              100
+            </td>
+            <td
+              class="assignment_score"
+              title="Click to test a different score"
+            >
+              <mat-form-field class="title" appearance="fill">
+                <input
+                  type="number"
+                  min="0"
+                  matInput
+                  formControlName="FinalGroup13"
+                />
+              </mat-form-field>
+            </td>
+          </tr>
+
+          <tr
+            class="student_assignment assignment_graded editable"
+            data-muted="false"
+            id="submission_185178"
+          >
+            <th class="title" scope="row">
+              <a>Group Presentation</a>
+            </th>
+            <td class="due">
+              {{ Group_PresentationGrade }}
+            </td>
+            <td class="status" scope="row">
+              100
+            </td>
+            <td
+              class="assignment_score"
+              title="Click to test a different score"
+            >
+              <mat-form-field class="title" appearance="fill">
+                <input
+                  type="number"
+                  min="0"
+                  matInput
+                  formControlName="Group_Presentation"
+                />
+              </mat-form-field>
+            </td>
+          </tr>
+
+          <tr
+            class="student_assignment assignment_graded editable"
+            data-muted="false"
+            id="submission_185178"
+          >
+            <th class="title" scope="row">
+              <a>Project Proposal</a>
+            </th>
+            <td class="due"></td>
+            <td class="status" scope="row"></td>
+            <td
+              class="assignment_score"
+              title="Click to test a different score"
+            >
+              <div *ngIf="ProjectProposasl">{{ ProjectProposasl }}</div>
+            </td>
+          </tr>
+
+          <tr
+            class="student_assignment assignment_graded editable"
+            data-muted="false"
+            id="submission_185178"
+          >
+            <th class="title" scope="row">
+              <a>Progress Report</a>
+            </th>
+            <td class="due"></td>
+            <td class="status" scope="row"></td>
+            <td
+              class="assignment_score"
+              title="Click to test a different score"
+            >
+              <div *ngIf="ProgressReport">{{ ProgressReport }}</div>
+            </td>
+          </tr>
+
+          <tr
+            class="student_assignment assignment_graded editable"
+            data-muted="false"
+            id="submission_185178"
+          >
+            <th class="title" scope="row">
+              <a>Final Report</a>
+            </th>
+            <td class="due"></td>
+            <td class="status" scope="row"></td>
+            <td
+              class="assignment_score"
+              title="Click to test a different score"
+            >
+              <div *ngIf="FinalReport">{{ FinalReport }}</div>
+            </td>
+          </tr>
+
+          <tr
+            class="student_assignment assignment_graded editable"
+            data-muted="false"
+            id="submission_185178"
+          >
+            <th class="title" scope="row">
+              <a>GroupPresentation</a>
+            </th>
+            <td class="due"></td>
+            <td class="status" scope="row"></td>
+            <td
+              class="assignment_score"
+              title="Click to test a different score"
+            >
+              <div *ngIf="GroupPresentation">{{ GroupPresentation }}</div>
+              <div></div>
+            </td>
+          </tr>
+
+          <tr
+            class="student_assignment assignment_graded editable"
+            data-muted="false"
+            id="submission_185178"
+          >
+            <th class="title" scope="row">
+              <a>Final Mark</a>
+            </th>
+            <td class="due"></td>
+            <td class="status" scope="row"></td>
+            <td
+              class="assignment_score"
+              title="Click to test a different score"
+            >
+              <div *ngIf="FinalTotalMark">{{ FinalTotalMark }}</div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="btn">Calculate Final Mark</button>&nbsp;&nbsp;&nbsp;&nbsp;
+    </form>
+    <br /><br />
+  </mat-card>
+</div>
+
+<!-- <div>
+
+
+    <mat-card>
+      <form [formGroup]="profileForm" (submit)="submitForm()">
+        <h3><b>Project Proposal</b></h3><br>
+        <label>Week 3 report grade:</label><br />
+        <mat-form-field class="title" appearance="fill">
+          <mat-label>Enter Week 3 report grade</mat-label>
+          <input type="number" matInput formControlName="IndReport3" />
+        </mat-form-field>
+        <br />
+        <label>Week 4 report grade:</label><br />
+        <mat-form-field class="title" appearance="fill">
+          <mat-label>Enter Week 4 report grade</mat-label>
+          <input type="number" matInput formControlName="IndReport4" />
+        </mat-form-field>
+        <br />
+        <label>Week 5 report grade:</label>&nbsp;<br />
+        <mat-form-field class="title" appearance="fill">
+          <mat-label>Enter Week 5 report grade</mat-label>
+          <input type="number" matInput formControlName="IndReport5" />
+        </mat-form-field>
+        <br />
+        <label> Group proposal week 5 grade:</label>&nbsp;<br />
+        <mat-form-field class="title" appearance="fill">
+          <mat-label>
+            Enter  Group proposal week 5 grade
+          </mat-label>
+          <input type="number" matInput formControlName="GroupProposal5" />
+        </mat-form-field>
+        <br />
+        <hr />
+        <h3><b>Progress Report</b></h3>
+        <label>Week 6 report grade:</label><br />
+        <mat-form-field class="title" appearance="fill">
+          <mat-label>
+            Enter Week 6 report grade
+          </mat-label>
+          <input type="number" matInput formControlName="IndReport6" />
+        </mat-form-field>
+        <br />
+        <label>Week 7 report grade:</label><br />
+        <mat-form-field class="title" appearance="fill">
+          <mat-label>
+            Enter Week 7 report grade
+          </mat-label>
+          <input type="number" matInput formControlName="IndReport7" />
+        </mat-form-field>
+        <br />
+        <label>Week 8 report grade:</label><br />
+        <mat-form-field class="title" appearance="fill">
+          <mat-label>
+            Enter Week 8 report grade
+          </mat-label>
+          <input type="number" matInput formControlName="IndReport8" />
+        </mat-form-field>
+        <br />
+        <label>Group Progress week 9 grade:</label><br />
+        <mat-form-field class="title" appearance="fill">
+          <mat-label>
+            Enter Group Progress week 9 grade"
+          </mat-label>
+          <input matInput formControlName="GroupProgress9" />
+        </mat-form-field>
+        <br />
+        <hr />
+        <h3><b>Final Report</b></h3>
+        <label>Week 9 report grade:</label><br />
+        <mat-form-field class="title" appearance="fill">
+          <mat-label>
+            Enter Week 9 report grade
+          </mat-label>
+          <input type="number" matInput formControlName="IndReport9" />
+        </mat-form-field>
+        <br />
+        <label>Week 10 report grade:</label><br />
+        <mat-form-field class="title" appearance="fill">
+          <mat-label>
+            Enter Week 10 report grade
+          </mat-label>
+          <input type="number" matInput formControlName="IndReport10" />
+        </mat-form-field>
+        <br />
+        <label>Week 11 report grade:</label><br />
+        <mat-form-field class="title" appearance="fill">
+          <mat-label>
+            Enter Week 11 report grade
+          </mat-label>
+          <input matInput formControlName="IndReport11" />
+        </mat-form-field>
+        <br />
+        <label>Week 12 report grade:</label><br />
+        <mat-form-field class="title" appearance="fill">
+          <mat-label>
+            Enter Week 12 report grade
+          </mat-label>
+          <input type="number" matInput formControlName="IndReport12" />
+        </mat-form-field>
+        <br />
+        <label>Week 13 report grade:</label><br />
+        <mat-form-field class="title" appearance="fill">
+          <mat-label>
+            Enter Week 13 report grade
+          </mat-label>
+          <input type="number" matInput formControlName="IndReport13" />
+        </mat-form-field>
+        <br />
+        <label>Final group week 13 grade:</label><br />
+        <mat-form-field class="title" appearance="fill">
+          <mat-label>
+            Enter Final group week 13 grade
+          </mat-label>
+          <input type="number" matInput formControlName="FinalGroup13" />
+        </mat-form-field>
+        <br />
+        <hr />
+        <h3><b>Presentation</b></h3>
+        <label>Group Presentation grade:</label><br />
+        <mat-form-field class="title" appearance="fill">
+          <mat-label>
+            Enter Group Presentation grade
+          </mat-label>
+          <input type="number" matInput formControlName="Group_Presentation" />
+        </mat-form-field>
+        <br />
+        <button class="btn btn-primary">Submit</button>&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <br /><br />
+      </form>
+
+    </mat-card>
+  </div>
+<div>
+  <mat-card *ngFor="let f of formula" class="example-card">
+    <mat-card-header>
+      <mat-card-title>{{f.Project_Proposal_Weight}}</mat-card-title>
+    </mat-card-header>
+  </mat-card>
+</div>
+
+   -->

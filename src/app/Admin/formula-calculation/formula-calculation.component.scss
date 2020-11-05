@@ -1,0 +1,59 @@
+th.mat-header-cell,
+td.mat-cell,
+td.mat-footer-cell {
+  padding: 20px;
+}
+form {
+}
+button {
+  background-color: #2d3b45;
+  margin-left: 45%;
+  color: white;
+}
+botton:hover {
+  //background-color:dimgrey;
+  color: white;
+}
+mat-card {
+  margin-top: 20px;
+}
+.fixed-top {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 230px;
+  z-index: 1030;
+  height: 100px;
+}
+
+.red {
+  background-color: #d0caca8c !important;
+}
+
+b,
+strong {
+  font-weight: bolder;
+  color: black;
+  margin-left: 25px;
+  font-size: larger;
+}
+
+.card strong {
+  margin-left: 5px;
+}
+
+.mat-table {
+  text-align: center;
+  margin-left: 20%;
+  width: 50%;
+}
+
+tr {
+  outline: 1px solid;
+}
+
+th,
+td {
+  outline: 1px solid;
+  text-align: center;
+}

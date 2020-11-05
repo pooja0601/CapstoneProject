@@ -1,0 +1,78 @@
+<div class="container" style="text-align: center;">
+  <mat-card style="margin-top: 18%;">
+    <mat-card-title> Register </mat-card-title>
+
+    <form [formGroup]="registerForm">
+      <mat-form-field>
+        <mat-label>First Name:</mat-label>
+        <input
+          matInput
+          placeholder="Enter First Name"
+          formControlName="firstName"
+        />
+      </mat-form-field>
+      <br />
+
+      <mat-form-field>
+        <mat-label>Last Name:</mat-label>
+        <input
+          matInput
+          placeholder="Enter Last Name"
+          formControlName="lastName"
+        />
+      </mat-form-field>
+      <br />
+
+      <mat-form-field>
+        <mat-label>Email:</mat-label>
+        <input matInput placeholder="Enter Email" formControlName="email" />
+        <mat-error *ngIf="email.invalid">{{ getuserErrorMessage() }}</mat-error>
+      </mat-form-field>
+      <br />
+
+      <mat-form-field>
+        <mat-label>User Name:</mat-label>
+        <input
+          matInput
+          placeholder="Enter User Name"
+          formControlName="username"
+        />
+      </mat-form-field>
+      <br />
+
+      <mat-form-field>
+        <mat-label>Password:</mat-label>
+        <input
+          matInput
+          type="password"
+          placeholder="Enter Password"
+          formControlName="password"
+        />
+        <mat-error *ngIf="password.invalid">{{
+          getpwdErrorMessage()
+        }}</mat-error>
+      </mat-form-field>
+      <br />
+
+      <mat-form-field>
+        <mat-label>Confirm Password:</mat-label>
+        <input
+          matInput
+          type="password"
+          placeholder="Confirm Password"
+          formControlName="confirmpassword"
+        />
+      </mat-form-field>
+
+      <br />
+      <button
+        mat-raised-button
+        style="margin: 5px; color: white; background-color: #2d3b45;"
+        (click)="register()"
+      >
+        Register
+      </button>
+      <!-- <button style="margin:5px;" (click)="moveToLogin()">Login</button>  -->
+    </form>
+  </mat-card>
+</div>

@@ -1,0 +1,153 @@
+<header>
+  <nav class="navbar fixed-top navbar-expand-lg red scrolling-navbar">
+    <strong>
+      <span class="material-icons">menu</span>
+    </strong>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent2"
+      aria-controls="navbarSupportedContent2"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <strong>
+            Create Presentation Session
+          </strong>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<div class="container" style="text-align: center;">
+  <mat-card>
+    <mat-card-title> Presentation Session Creation </mat-card-title>
+    <br />
+
+    <form [formGroup]="pptForm" (submit)="session()">
+      <!-- <mat-form-field>
+        <mat-label>Session Date: </mat-label>
+        <input type = "date"  matInput formControlName="session_date"   matInput placeholder="yyyy-mm-dd" >
+      </mat-form-field> -->
+      <mat-form-field>
+        <mat-label>Choose a date</mat-label>
+        <input
+          matInput
+          [matDatepicker]="picker"
+          formControlName="session_date"
+        />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <!-- <mat-datepicker>date-min-limit="{{minDate}}"</mat-datepicker> -->
+      </mat-form-field>
+
+      <br />
+      <!-- <input class="form-control m-input pl-6" type="date" 
+      [min]="todayDate"formControlName="dateValidity"> -->
+      <!-- <mat-form-field>
+        <mat-label>Session Time: </mat-label>
+        <input  matInput formControlName="session_time" matInput placeholder="hh:mm to hh:mm" >
+      </mat-form-field> -->
+
+      <mat-form-field>
+        <mat-label>Session Duration: </mat-label>
+        <input
+          matInput
+          formControlName="session_duration"
+          value="30"
+          type="number"
+          min="5"
+          step="5"
+          max="120"
+          (change)="updateStartTime()"
+        />
+      </mat-form-field>
+      <br />
+
+      <mat-form-field>
+        <mat-label>Session Start Time:</mat-label>
+        <mat-select formControlName="session_starttime">
+          <mat-option *ngFor="let i of starttime_collection" value="{{ i }}">{{
+            i
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br />
+
+      <mat-form-field>
+        <mat-label>Session End Time:</mat-label>
+        <mat-select formControlName="session_endtime">
+          <mat-option *ngFor="let i of endtime_collection" value="{{ i }}">{{
+            i
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br />
+
+      <mat-form-field>
+        <mat-label>Session Location: </mat-label>
+        <input
+          matInput
+          formControlName="session_location"
+          matInput
+          placeholder="enter location"
+        />
+      </mat-form-field>
+
+      <br />
+
+      <div *ngIf="action == 'edit'">
+        <mat-form-field>
+          <mat-label>Group ID: </mat-label>
+          <input
+            matInput
+            formControlName="group_name"
+            matInput
+            placeholder="enter group name"
+          />
+        </mat-form-field>
+      </div>
+
+      <br />
+
+      <div *ngIf="action !== 'edit'">
+        <button mat-raised-button class="button">Create Session</button>
+      </div>
+
+      <div *ngIf="action == 'edit'">
+        <button mat-raised-button class="button">Update Session</button>
+      </div>
+    </form>
+  </mat-card>
+</div>
+
+<!-- <mat-option value="09:30-10:00AM">09:30-10:00AM</mat-option>
+          <mat-option value="10:00-10:30AM">10:00-10:30AM</mat-option>
+          <mat-option value="10:30-11:00AM">10:30-11:00AM</mat-option>
+          <mat-option value="11:00-11:30AM">11:00-11:30AM</mat-option>
+          <mat-option value="11:30-12:00PM">11:30-12:00PM</mat-option>
+          <mat-option value="12:00-12:30PM">12:00-12:30PM</mat-option>
+          <mat-option value="12:30-01:00PM">12:30-01:00PM</mat-option>
+          <mat-option value="01:00-01:30PM">01:00-01:30PM</mat-option>
+          <mat-option value="01:30-02:00PM">01:30-02:00PM</mat-option>
+          <mat-option value="02:00-02:30PM">02:00-02:30PM</mat-option>
+          <mat-option value="02:30-03:00PM">02:30-03:00PM</mat-option>
+          <mat-option value="03:00-03:30PM">03:00-03:30PM</mat-option>
+          <mat-option value="03:30-04:00PM">03:30-04:00PM</mat-option>
+          <mat-option value="04:00-04:30PM">04:00-04:30PM</mat-option>
+          <mat-option value="04:30-05:00PM">04:30-05:00PM</mat-option>
+          <mat-option value="05:00-05:30PM">05:00-05:30PM</mat-option>
+          <mat-option value="05:30-06:00PM">05:30-06:00PM</mat-option>
+          <mat-option value="06:00-06:30PM">06:00-06:30PM</mat-option>
+          <mat-option value="06:30-07:00PM">06:30-07:00PM</mat-option>
+          <mat-option value="07:00-07:30PM">07:00-07:30PM</mat-option>
+          <mat-option value="07:30-08:00PM">07:30-08:00PM</mat-option>
+          <mat-option value="08:00-08:30PM">08:00-08:30PM</mat-option>
+          <mat-option value="08:30-09:00PM">08:30-09:00PM</mat-option> -->

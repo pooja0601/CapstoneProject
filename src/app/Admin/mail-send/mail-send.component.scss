@@ -1,0 +1,57 @@
+.emailIdForm {
+  width: 90%;
+  margin-left: 50px;
+}
+
+.emailIdInput {
+  margin-left: 50px;
+  width: 90%;
+}
+
+.textArea {
+  height: 500px;
+}
+.sendTo {
+  margin-left: 50px;
+  width: 90%;
+}
+.submitBtn {
+  margin-left: 50%;
+  background-color: #2d3b45;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.mail {
+  outline: 1px solid #2d3b45;
+}
+
+.fixed-top {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 230px;
+  z-index: 1030;
+  height: 100px;
+}
+
+.red {
+  background-color: #d0caca8c !important;
+}
+
+b,
+strong {
+  font-weight: bolder;
+  color: black;
+  margin-left: 25px;
+  font-size: larger;
+}
+
+.container {
+  margin-top: 136px;
+  width: 100%;
+}
+
+.card strong {
+  margin-left: 5px;
+}

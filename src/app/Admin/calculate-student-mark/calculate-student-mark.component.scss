@@ -1,0 +1,57 @@
+
+/*button {
+  padding: 15px;
+  position: absolute;
+  top: 97%;
+  left: 70%;
+  -ms-transform: translatex(-70%) translatey(-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+
+}*/
+
+
+button {
+  background-color: #2d3b45;
+  margin-top: 3%;
+  margin-left: 45%;
+  color: white;
+}
+button:hover {
+  background-color: dimgrey;
+  color: white;
+}
+hr {
+  border: 1px solid black;
+}
+label, mat-form-field {
+  margin-left: 38%;
+}
+mat-card {
+  margin-top: 136px;
+}
+.fixed-top {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 230px;
+  z-index: 1030;
+  height: 100px;
+}
+
+.red {
+  background-color: #d0caca8c !important;
+}
+
+b, strong {
+  font-weight: bolder;
+  color: black;
+  margin-left: 25px;
+  font-size: larger;
+}
+
+
+
+.card strong {
+  margin-left: 5px;
+}

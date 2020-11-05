@@ -1,0 +1,76 @@
+<!--Main Navigation-->
+<header>
+  <nav class="navbar fixed-top navbar-expand-lg red scrolling-navbar">
+    <strong>
+      <span class="material-icons">menu</span>
+    </strong>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent2"
+      aria-controls="navbarSupportedContent2"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <strong> View Presentation Slots </strong>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<div class="container">
+  <mat-card>
+    <table
+      mat-table
+      [dataSource]="dataSource"
+      #mytable
+      class="my-table mat-elevation-z8"
+    >
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>Slot ID</th>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="group_name">
+        <th mat-header-cell *matHeaderCellDef>Group Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.group_name }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="session_date">
+        <th mat-header-cell *matHeaderCellDef>Slot Date</th>
+        <td mat-cell *matCellDef="let element">{{ element.session_date }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="session_starttime">
+        <th mat-header-cell *matHeaderCellDef>Slot Start Time</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.session_starttime }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="session_endtime">
+        <th mat-header-cell *matHeaderCellDef>Slot End Time</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.session_endtime }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="session_location">
+        <th mat-header-cell *matHeaderCellDef>Slot Location</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.session_location }}
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </mat-card>
+</div>

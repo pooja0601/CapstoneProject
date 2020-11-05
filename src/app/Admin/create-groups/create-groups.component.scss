@@ -1,0 +1,41 @@
+th.mat-header-cell, td.mat-cell, td.mat-footer-cell{
+    padding: 20px;
+}
+.container {
+    padding-top: 125px;
+    width: 100%;
+} 
+.mat-button, .mat-icon-button, .mat-stroked-button {
+    color: white;
+    background: #2D3B45;
+  
+  }
+  
+  .mat-table{
+      width: 100%
+  }
+
+  .alignright{
+    text-align: right;
+    padding: 10px;
+  }
+
+  .fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 230px;
+    z-index: 1030;
+    height: 100px;
+}
+
+.red {
+    background-color: #d0caca8c !important;
+}
+
+b, strong {
+    font-weight: bolder;
+    color: black;
+    margin-left: 25px;
+    font-size: larger;
+}

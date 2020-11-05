@@ -1,0 +1,167 @@
+<!--Main Navigation-->
+<header>
+  <nav class="navbar fixed-top navbar-expand-lg red scrolling-navbar">
+    <strong>
+      <span class="material-icons">menu</span>
+    </strong>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent2"
+      aria-controls="navbarSupportedContent2"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <strong>
+            Approved Students
+          </strong>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<div class="container text-center">
+  <!-- <mat-label>Select Project mode</mat-label>
+  <mat-select class="filter" (selectionChange)="selectedCourse($event.value)">
+    <mat-option value="all">All</mat-option>
+    <mat-option value="individual">Individual</mat-option>
+    <mat-option value="group">Group</mat-option>
+  </mat-select> -->
+  <mat-tab-group>
+    <mat-tab label="Group">
+      <table
+        mat-table
+        [dataSource]="dataSource"
+        #mytable
+        class="my-table mat-elevation-z8"
+        style="width: 100%;"
+      >
+        <ng-container matColumnDef="no">
+          <th mat-header-cell *matHeaderCellDef>No</th>
+          <!-- <tr *ngFor="let v of files; let i = index">
+        <td>{{ i + 1 }}</td> -->
+          <td mat-cell *matCellDef="let element; let i = index">{{ i + 1 }}</td>
+        </ng-container>
+        <ng-container matColumnDef="projectName">
+          <th mat-header-cell *matHeaderCellDef>Project Name</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.title }}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="projectId">
+          <th mat-header-cell *matHeaderCellDef>Project ID</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.project_id }}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="groupName">
+          <th mat-header-cell *matHeaderCellDef>Group Name</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.group_name }}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="student1">
+          <th mat-header-cell *matHeaderCellDef>Student 1</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.student_one }}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="student2">
+          <th mat-header-cell *matHeaderCellDef>Student 2</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.student_two }}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="student3">
+          <th mat-header-cell *matHeaderCellDef>Student 3</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.student_three }}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="student4">
+          <th mat-header-cell *matHeaderCellDef>Student 4</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.student_four }}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="student5">
+          <th mat-header-cell *matHeaderCellDef>Student 5</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.student_five }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="feedback">
+          <th mat-header-cell *matHeaderCellDef>Feedback</th>
+          <td mat-cell *matCellDef="let element" class="action-link">
+            <button
+              class="feedbackBtn"
+              mat-raised-button
+              (click)="studentFeedback(element.project_id, element.group_name)"
+            >
+              Feedback
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </mat-tab>
+    <mat-tab label="Individual">
+      <table
+        mat-table
+        [dataSource]="indData"
+        #indtable
+        class="my-table mat-elevation-z8"
+        style="width: 100%;"
+      >
+        <ng-container matColumnDef="no">
+          <th mat-header-cell *matHeaderCellDef>No</th>
+          <td mat-cell *matCellDef="let element; let i = index">{{ i + 1 }}</td>
+        </ng-container>
+        <ng-container matColumnDef="projectName">
+          <th mat-header-cell *matHeaderCellDef>Project Name</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.title }}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="projectId">
+          <th mat-header-cell *matHeaderCellDef>Project ID</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.project_id }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="student">
+          <th mat-header-cell *matHeaderCellDef>Individual Student</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.sid }}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="feedback">
+          <th mat-header-cell *matHeaderCellDef>Feedback</th>
+          <td mat-cell *matCellDef="let element" class="action-link">
+            <button
+              class="feedbackBtn"
+              mat-raised-button
+              (click)="studentFeedback(element.project_id, element.group_name)"
+            >
+              Feedback
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="indColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: indColumns"></tr>
+      </table>
+    </mat-tab>
+  </mat-tab-group>
+</div>

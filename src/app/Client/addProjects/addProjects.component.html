@@ -1,0 +1,244 @@
+<!--Main Navigation-->
+<header>
+  <nav class="navbar fixed-top navbar-expand-lg red scrolling-navbar">
+    <strong>
+      <span class="material-icons">menu</span>
+    </strong>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent2"
+      aria-controls="navbarSupportedContent2"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <strong>
+            Propose Project
+          </strong>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<div class="container">
+  <div class="projectDiv">
+    <form [formGroup]="profileForm" (submit)="submitForm()">
+      <label>Enter Project Title:</label>
+      <div>
+        <mat-form-field class="title" appearance="fill">
+          <mat-label> Project Title</mat-label>
+          <input matInput required formControlName="title" />
+        </mat-form-field>
+      </div>
+      <label>Enter Project Description:</label>
+      <div>
+        <mat-form-field class="desWidth" appearance="fill">
+          <mat-label>Project description</mat-label>
+          <textarea
+            class="desTextArea"
+            matInput
+            formControlName="description"
+            required
+          ></textarea>
+        </mat-form-field>
+      </div>
+      <label>Enter Project Functionalities:</label>
+      <div>
+        <mat-form-field class="desWidth" appearance="fill">
+          <mat-label>project Functionalities</mat-label>
+          <textarea
+            class="desTextArea"
+            matInput
+            formControlName="functionalities"
+            required
+          ></textarea>
+        </mat-form-field>
+      </div>
+      <label *ngIf="hidden">Select an Project mode:</label>
+      <div>
+        <mat-radio-group
+          *ngIf="hidden"
+          formControlName="mode"
+          aria-label="Select an option"
+        >
+          <!-- <mat-label>Select project mode: </mat-label> -->
+          <mat-radio-button
+            (change)="modeSelect($event.value)"
+            required
+            value="individual"
+            >Individual</mat-radio-button
+          >
+          <mat-radio-button
+            (change)="modeSelect($event.value)"
+            required
+            value="group"
+            >Group</mat-radio-button
+          >
+          <mat-radio-button
+            (change)="modeSelect($event.value)"
+            required
+            value="both"
+            >Both</mat-radio-button
+          >
+        </mat-radio-group>
+      </div>
+      <div>
+        <!-- <mat-label>Number of groups</mat-label>
+        <input matInput placeholder="Ex. 5" /> -->
+        <mat-form-field *ngIf="groupHidden" class="groupNo" appearance="fill">
+          <mat-label> Number of groups</mat-label>
+          <input matInput formControlName="groupNo" />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-selection-list *ngIf="hidden" formControlName="type">
+          <mat-label>Select project type:</mat-label>
+          <br />
+          <div class="projectType">
+            <mat-list-option value="information System"
+              >Information systems</mat-list-option
+            >
+          </div>
+          <div class="projectType">
+            <mat-list-option value="software">Software</mat-list-option>
+          </div>
+          <div class="projectType">
+            <mat-list-option value="data Analysis"
+              >Data Analysis</mat-list-option
+            >
+          </div>
+          <div class="projectType">
+            <mat-list-option value="other">Other</mat-list-option>
+          </div>
+        </mat-selection-list>
+      </div>
+
+      <!-- <mat-label>Enter required skills:</mat-label> -->
+      <mat-form-field class="example-chip-list">
+        <mat-chip-list #chipList aria-label="Fruit selection">
+          <mat-chip
+            *ngFor="let fruit of fruits"
+            disabled="{{ viewDisable }}"
+            [selectable]="selectable"
+            [removable]="removable"
+            (removed)="remove(fruit)"
+          >
+            {{ fruit.name }}
+            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+          </mat-chip>
+          <input
+            placeholder=" required skills"
+            disabled="{{ viewDisable }}"
+            [matChipInputFor]="chipList"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+            [matChipInputAddOnBlur]="addOnBlur"
+            (matChipInputTokenEnd)="add($event)"
+          />
+        </mat-chip-list>
+      </mat-form-field>
+      <br />
+
+      <div *ngIf="hidden" formArrayName="contacts">
+        <div *ngFor="let contact of contactFormGroup.controls; let i = index">
+          <div [formGroupName]="i">
+            <div>
+              <label>Supervisor Name*</label>
+              <input
+                class="supName"
+                formControlName="name"
+                type="text"
+                style="margin-left: 5px;"
+              />
+            </div>
+            <div>
+              <label>Email*</label>
+              <input
+                class="supMail"
+                formControlName="value"
+                type="text"
+                (change)="changedFieldType(i)"
+              />
+              <span
+                class="text-danger"
+                *ngIf="
+                  getContactsFormGroup(i).controls['value'].touched &&
+                  getContactsFormGroup(i).controls['value'].hasError('required')
+                "
+              >
+                Email is required!
+              </span>
+              <span
+                class="text-danger"
+                *ngIf="
+                  getContactsFormGroup(i).controls['value'].touched &&
+                  getContactsFormGroup(i).controls['value'].hasError('email')
+                "
+              >
+                Email is not valid!
+              </span>
+            </div>
+            <div class="col-xs-2">
+              <button
+                type="button"
+                class="supButton"
+                value="Start"
+                disabled="{{ viewDisable }}"
+                mat-raised-button
+                type="button"
+                title="Remove Supervisor"
+                (click)="removeContact(i)"
+              >
+                <span class="material-icons">
+                  delete
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-4">
+        <button
+          type="button"
+          *ngIf="hidden"
+          style="margin-top: 6px;"
+          class="supButton"
+          disabled="{{ viewDisable }}"
+          value="Stop"
+          mat-raised-button
+          title="Add Supervisor"
+          (click)="addContact()"
+        >
+          <span class="material-icons">
+            person_add
+          </span>
+        </button>
+      </div>
+      <button
+        disabled="{{ viewDisable }}"
+        mat-stroked-button
+        mat-raised-button
+        class="submitBtn"
+      >
+        Submit
+      </button>
+      <button
+        disabled="{{ viewDisable }}"
+        mat-raised-button
+        [routerLink]="['']"
+        class="cancelBtn"
+      >
+        Cancel
+      </button>
+      <!-- <a [routerLink]="['']" style="margin-left: 15px; color: red;">
+        Cancel
+      </a> -->
+    </form>
+  </div>
+</div>

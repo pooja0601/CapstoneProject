@@ -1,0 +1,73 @@
+<!--Main Navigation-->
+<header>
+  <nav class="navbar fixed-top navbar-expand-lg red scrolling-navbar">
+    <strong>
+      <span class="material-icons">menu</span>
+    </strong>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent2"
+      aria-controls="navbarSupportedContent2"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <strong>
+            View Projects
+          </strong>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<div class="container">
+  <div>You are a part of {{ currentUser.course }} course</div>
+
+  <mat-card *ngFor="let project of obs | async" class="example-card">
+    <mat-card-header>
+      <mat-card-title>{{ project.title }}</mat-card-title>
+      <mat-card-subtitle>{{ project.supervisor }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+        {{ project.description }}
+      </p>
+    </mat-card-content>
+    <div class="matAction">
+      <!-- <mat-card-actions> -->
+      <button
+        class="viewProjectBtn"
+        mat-raised-button
+        (click)="viewProject(project.project_id, project.mode)"
+      >
+        <span class="material-icons" style="color: lightgrey;">
+          visibility
+        </span>
+        View
+      </button>
+      <button
+        *ngIf="groupCourse"
+        class="joinGroupBtn"
+        mat-raised-button
+        (click)="joinGroup()"
+      >
+        View Groups
+      </button>
+      <!-- </mat-card-actions> -->
+    </div>
+    <!-- <button mat-button (click)="delete(v.id)">Delete</button>
+      <button mat-button (click)="toggle()">Send</button>
+      <span *ngIf="icon" class="material-icons">
+        check_circle
+      </span> -->
+    <!-- </mat-card-actions> -->
+  </mat-card>
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>

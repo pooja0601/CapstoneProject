@@ -1,0 +1,80 @@
+<header>
+  <nav class="navbar fixed-top navbar-expand-lg red scrolling-navbar">
+    <strong>
+      <span class="material-icons">menu</span>
+    </strong>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent2"
+      aria-controls="navbarSupportedContent2"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <strong>
+            Send Mail Notifications
+          </strong>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+<div class="container" style="margin-top: 110px;">
+  <div class="mail">
+    <form [formGroup]="mailForm" (submit)="submitForm()">
+      <mat-form-field class="sendTo">
+        <mat-label>Send To:</mat-label>
+        <mat-select (selectionChange)="sendTo($event.value)">
+          <mat-option value="allStudents">All Students</mat-option>
+          <mat-option value="allClients">All Clients</mat-option>
+          <mat-option value="specificUser">Specific User</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field *ngIf="specificUsers" class="emailIdInput">
+        <mat-label>Enter your email id : </mat-label>
+        <input
+          matInput
+          placeholder="email id"
+          formControlName="emailId"
+          required
+        />
+        <br />
+      </mat-form-field>
+      <br />
+      <mat-form-field class="emailIdInput">
+        <mat-label>Enter subject : </mat-label>
+        <input
+          matInput
+          placeholder="Subject"
+          formControlName="subject"
+          required
+        />
+        <br />
+      </mat-form-field>
+      <br />
+      <mat-form-field class="emailIdForm">
+        <mat-label>Enter email content : </mat-label>
+        <textarea
+          matInput
+          placeholder="Enter email content"
+          formControlName="emailContent"
+          class="textArea"
+          required
+        ></textarea>
+      </mat-form-field>
+      <br />
+
+      <button mat-raised-button class="submitBtn">
+        Send Mail
+        <span class="material-icons"> send </span>
+      </button>
+    </form>
+  </div>
+</div>

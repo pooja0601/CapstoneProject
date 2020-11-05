@@ -1,0 +1,57 @@
+<div class="container">
+  <div *ngIf="files">
+    <table id="myTable" class="table">
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>Project Name</th>
+          <th>Student Name</th>
+          <th>CV</th>
+          <th>Select</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let v of files; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ v.projectTitle }}</td>
+          <td *ngIf="v">{{ v.sid }}</td>
+          <td>
+            <button
+              *ngIf="v"
+              style="background: #2d3b45; color: white;"
+              mat-raised-button
+              (click)="downloadFile(v)"
+            >
+              <span class="material-icons">
+                cloud_download
+              </span>
+              Download CV
+            </button>
+          </td>
+          <td>
+            <mat-checkbox (change)="OnChange($event, v.sid, v.project_id)">
+            </mat-checkbox>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="matAction">
+      <button
+        mat-raised-button
+        class="backBtn"
+        style="position: absolute; bottom: 10px; left: 50%; margin-left: -45%;"
+        (click)="back()"
+      >
+        Back
+      </button>
+      <button
+        mat-raised-button
+        class="approveBtn"
+        style="position: absolute; bottom: 80px; margin-left: 40%;"
+        (click)="submit()"
+      >
+        Approve
+      </button>
+    </div>
+  </div>
+</div>

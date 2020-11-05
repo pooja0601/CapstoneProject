@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\server",
+    "\\server\\controller",
+    "\\server\\controller\\Client",
+    "\\server\\models",
+    "\\server\\models\\Client",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\Admin",
+    "\\src\\app\\Admin\\calculate-student-mark"
+  ],
+  "PreviewInSolutionExplorer": false
+}

@@ -1,0 +1,43 @@
+<!--Main Navigation-->
+<header>
+  <nav class="navbar fixed-top navbar-expand-lg red scrolling-navbar">
+    <strong>
+      <span class="material-icons">menu</span>
+    </strong>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent2"
+      aria-controls="navbarSupportedContent2"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <strong>
+            Notifications
+          </strong>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+<!--Main Navigation-->
+
+<div class="container">
+  <mat-card *ngFor="let not of notifications" class="example-card">
+    <mat-card-header>
+      <mat-card-title>{{ not.emailContent }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content> </mat-card-content>
+  </mat-card>
+  <mat-card>
+    <mat-card-header *ngIf="notifications == 0 || currentUser.role == 'Admin'">
+      <mat-card-title>No Notifications</mat-card-title>
+    </mat-card-header>
+  </mat-card>
+</div>

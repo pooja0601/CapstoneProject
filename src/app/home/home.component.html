@@ -1,0 +1,647 @@
+﻿<!--Main Navigation-->
+<header>
+  <nav class="navbar fixed-top navbar-expand-lg red scrolling-navbar">
+    <strong>
+      <span class="material-icons">menu</span>
+    </strong>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent2"
+      aria-controls="navbarSupportedContent2"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <strong>
+            Home
+          </strong>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+<!--Main Navigation-->
+
+<div class="container">
+  <div class="card mt-4">
+    <div class="card-body">
+      <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
+      <ul *ngIf="userFromApi">
+        Welcome<strong
+          >{{ userFromApi.firstName }} {{ userFromApi.lastName }}</strong
+        >, You're logged in to USYD Capstone Management System.
+      </ul>
+    </div>
+  </div>
+
+  <!-- Admin Card deck -->
+  <div *ngIf="isAdmin">
+    <div class="card-deck">
+      <!-- Card -->
+      <div class="card mb-4">
+        <!--Card image-->
+        <div class="view overlay">
+          <img
+            class="card-img-top"
+            src="https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2821%29.jpg"
+            alt="Card image cap"
+          />
+          <a routerLink="/admin">
+            <div class="mask rgba-white-strong"></div>
+          </a>
+        </div>
+
+        <!--Card content-->
+        <div class="card-body">
+          <!--Title-->
+          <h4 class="card-title">Upload Users</h4>
+          <!--Text-->
+          <p class="card-text">
+            Upload all the users of the system using the .csv template file with
+            respective roles and unikey.
+          </p>
+          <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+          <a routerLink="/admin" class="black-text d-flex justify-content-end">
+            <h5><i class="fas fa-angle-double-right"></i></h5>
+          </a>
+        </div>
+      </div>
+      <!-- Card -->
+
+      <!-- Card -->
+      <div class="card mb-4">
+        <!--Card image-->
+        <div class="view overlay">
+          <img
+            class="card-img-top"
+            src="https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg"
+            alt="Card image cap"
+          />
+          <a routerLink="/UpdateProjectStatus">
+            <div class="mask rgba-white-strong"></div>
+          </a>
+        </div>
+
+        <!--Card content-->
+        <div class="card-body">
+          <!--Title-->
+          <h4 class="card-title">View Project List</h4>
+          <!--Text-->
+          <p class="card-text">
+            View all the projects submitted by clients, filter based on modes,
+            clone and Accept or Reject.
+          </p>
+          <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+          <a
+            routerLink="/UpdateProjectStatus"
+            class="black-text d-flex justify-content-end"
+          >
+            <h5><i class="fas fa-angle-double-right"></i></h5>
+          </a>
+        </div>
+      </div>
+      <!-- Card -->
+
+      <!-- Card -->
+      <div class="card mb-4">
+        <!--Card image-->
+        <div class="view overlay">
+          <img
+            class="card-img-top"
+            src="../assets/images/homeimg6.jpg"
+            alt="Card image cap"
+          />
+          <a routerLink="/addGroup">
+            <div class="mask rgba-white-strong"></div>
+          </a>
+        </div>
+
+        <!--Card content-->
+        <div class="card-body">
+          <!--Title-->
+          <h4 class="card-title">View Dashboard</h4>
+          <!--Text-->
+          <p class="card-text">
+            View different charts for Project Types, Project Status, number of
+            Students that represents the current system.
+          </p>
+          <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+          <a
+            routerLink="/addGroup"
+            class="black-text d-flex justify-content-end"
+          >
+            <h5><i class="fas fa-angle-double-right"></i></h5>
+          </a>
+        </div>
+      </div>
+      <!-- Card -->
+    </div>
+    <!-- Card deck -->
+
+    <!-- Card deck -->
+    <div class="card-deck">
+      <!-- Card -->
+      <div class="card mb-4">
+        <!--Card image-->
+        <div class="view overlay">
+          <img
+            class="card-img-top"
+            src="../assets/images/homeimg7.jpg"
+            alt="Card image cap"
+          />
+          <a routerLink="/addGroup">
+            <div class="mask rgba-white-strong"></div>
+          </a>
+        </div>
+
+        <!--Card content-->
+        <div class="card-body">
+          <!--Title-->
+          <h4 class="card-title">Create Groups</h4>
+          <!--Text-->
+          <p class="card-text">
+            View all the Approved projects under COMP5703 and create any number
+            of groups under each project Id.
+          </p>
+          <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+          <a
+            routerLink="/addGroup"
+            class="black-text d-flex justify-content-end"
+          >
+            <h5><i class="fas fa-angle-double-right"></i></h5>
+          </a>
+        </div>
+      </div>
+      <!-- Card -->
+
+      <!-- Card -->
+      <div class="card mb-4">
+        <!--Card image-->
+        <div class="view overlay">
+          <img
+            class="card-img-top"
+            src="../assets/images/homeimg4.jpg"
+            alt="Card image cap"
+          />
+          <a routerLink="/editGroups">
+            <div class="mask rgba-white-strong"></div>
+          </a>
+        </div>
+
+        <!--Card content-->
+        <div class="card-body">
+          <!--Title-->
+          <h4 class="card-title">Assign Student Groups</h4>
+          <!--Text-->
+          <p class="card-text">
+            Assign, Add or Remove students from a Group, View list of students
+            not in any Groups and Publish Final Groups.
+          </p>
+          <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+          <a
+            routerLink="/editGroups"
+            class="black-text d-flex justify-content-end"
+          >
+            <h5><i class="fas fa-angle-double-right"></i></h5>
+          </a>
+        </div>
+      </div>
+      <!-- Card -->
+
+      <!-- Card -->
+      <div class="card mb-4">
+        <!--Card image-->
+        <div class="view overlay">
+          <img
+            class="card-img-top"
+            src="../assets/images/homeimg2.jpg"
+            alt="Card image cap"
+          />
+          <a routerLink="/Formula">
+            <div class="mask rgba-white-strong"></div>
+          </a>
+        </div>
+
+        <!--Card content-->
+        <div class="card-body">
+          <!--Title-->
+          <h4 class="card-title">Create Rubrick</h4>
+          <!--Text-->
+          <p class="card-text">
+            Create the formula for the Capstone assignments by adding weights
+            for each assignment. Total weight must be 100.
+          </p>
+          <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+          <a
+            routerLink="/Formula"
+            class="black-text d-flex justify-content-end"
+          >
+            <h5><i class="fas fa-angle-double-right"></i></h5>
+          </a>
+        </div>
+      </div>
+      <!-- Card -->
+    </div>
+    <!-- Card deck -->
+
+    <!-- Card deck -->
+    <div class="card-deck">
+      <!-- Card -->
+      <div class="card mb-4">
+        <!--Card image-->
+        <div class="view overlay">
+          <img
+            class="card-img-top"
+            src="../assets/images/homeimg8.jpg"
+            alt="Card image cap"
+          />
+          <a routerLink="/pptsession">
+            <div class="mask rgba-white-strong"></div>
+          </a>
+        </div>
+
+        <!--Card content-->
+        <div class="card-body">
+          <!--Title-->
+          <h4 class="card-title">Create Presentation slots</h4>
+          <!--Text-->
+          <p class="card-text">
+            Create Presentation slots by giving Date, Time and Location. each
+            slot is for 30 minutes.
+          </p>
+          <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+          <a
+            routerLink="/pptsession"
+            class="black-text d-flex justify-content-end"
+          >
+            <h5><i class="fas fa-angle-double-right"></i></h5>
+          </a>
+        </div>
+      </div>
+      <!-- Card -->
+
+      <!-- Card -->
+      <div class="card mb-4">
+        <!--Card image-->
+        <div class="view overlay">
+          <img
+            class="card-img-top"
+            src="../assets/images/homeimg5.jpg"
+            alt="Card image cap"
+          />
+          <a routerLink="/mailSend">
+            <div class="mask rgba-white-strong"></div>
+          </a>
+        </div>
+
+        <!--Card content-->
+        <div class="card-body">
+          <!--Title-->
+          <h4 class="card-title">Send Notifications</h4>
+          <!--Text-->
+          <p class="card-text">
+            Send Notifications to All users or Students or Clients or any
+            particular user as an email.
+          </p>
+          <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+          <a
+            routerLink="/mailSend"
+            class="black-text d-flex justify-content-end"
+          >
+            <h5><i class="fas fa-angle-double-right"></i></h5>
+          </a>
+        </div>
+      </div>
+      <!-- Card -->
+
+      <!-- Card -->
+      <div class="card mb-4">
+        <!--Card image-->
+        <div class="view overlay">
+          <img
+            class="card-img-top"
+            src="../assets/images/homeimg9.jpeg"
+            alt="Card image cap"
+          />
+          <a routerLink="/ViewStudentsMarks">
+            <div class="mask rgba-white-strong"></div>
+          </a>
+        </div>
+
+        <!--Card content-->
+        <div class="card-body">
+          <!--Title-->
+          <h4 class="card-title">Update Marks</h4>
+          <!--Text-->
+          <p class="card-text">
+            Update student marks against each assignment. Students will be able
+            to lookup marks and use the calculator.
+          </p>
+          <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+          <a
+            routerLink="/ViewStudentsMarks"
+            class="black-text d-flex justify-content-end"
+          >
+            <h5><i class="fas fa-angle-double-right"></i></h5>
+          </a>
+        </div>
+      </div>
+      <!-- Card -->
+    </div>
+  </div>
+  <!-- Admin Card deck -->
+
+  <!-- Clients Card deck -->
+  <div *ngIf="isClient">
+    <div class="card-deck">
+      <!-- Card -->
+      <div class="card mb-4">
+        <!--Card image-->
+        <div class="view overlay">
+          <img
+            class="card-img-top"
+            src="https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2821%29.jpg"
+            alt="Card image cap"
+          />
+          <a routerLink="/notifications">
+            <div class="mask rgba-white-strong"></div>
+          </a>
+        </div>
+
+        <!--Card content-->
+        <div class="card-body">
+          <!--Title-->
+          <h4 class="card-title">Notifications</h4>
+          <!--Text-->
+          <p class="card-text">
+            Notifications can be viewed here. All the notifications are also
+            available in your email inbox.
+          </p>
+          <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+          <a
+            routerLink="/notifications"
+            class="black-text d-flex justify-content-end"
+          >
+            <h5><i class="fas fa-angle-double-right"></i></h5>
+          </a>
+        </div>
+      </div>
+      <!-- Card -->
+
+      <!-- Card -->
+      <div class="card mb-4">
+        <!--Card image-->
+        <div class="view overlay">
+          <img
+            class="card-img-top"
+            src="https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg"
+            alt="Card image cap"
+          />
+          <a routerLink="/addProject">
+            <div class="mask rgba-white-strong"></div>
+          </a>
+        </div>
+
+        <!--Card content-->
+        <div class="card-body">
+          <!--Title-->
+          <h4 class="card-title">Add Project</h4>
+          <!--Text-->
+          <p class="card-text">
+            Add Projects by giving all the mandatory details and select mode as
+            either Individual or Group or Both.
+          </p>
+          <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+          <a
+            routerLink="/addProject"
+            class="black-text d-flex justify-content-end"
+          >
+            <h5><i class="fas fa-angle-double-right"></i></h5>
+          </a>
+        </div>
+      </div>
+      <!-- Card -->
+    </div>
+
+    <div class="card-deck">
+      <!-- Card -->
+      <div class="card mb-4">
+        <!--Card image-->
+        <div class="view overlay">
+          <img
+            class="card-img-top"
+            src="../assets/images/homeimg2.jpg"
+            alt="Card image cap"
+          />
+          <a routerLink="/viewProjectDetails">
+            <div class="mask rgba-white-strong"></div>
+          </a>
+        </div>
+
+        <!--Card content-->
+        <div class="card-body">
+          <!--Title-->
+          <h4 class="card-title">View Projects</h4>
+          <!--Text-->
+          <p class="card-text">
+            View all the submitted Projects,Check status and Edit or Delete
+            projects which are in Pending status.
+          </p>
+          <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+          <a
+            routerLink="/viewProjectDetails"
+            class="black-text d-flex justify-content-end"
+          >
+            <h5><i class="fas fa-angle-double-right"></i></h5>
+          </a>
+        </div>
+      </div>
+      <!-- Card -->
+
+      <!-- Card -->
+      <div class="card mb-4">
+        <!--Card image-->
+        <div class="view overlay">
+          <img
+            class="card-img-top"
+            src="../assets/images/homeimg7.jpg"
+            alt="Card image cap"
+          />
+          <a routerLink="/approvedStudents">
+            <div class="mask rgba-white-strong"></div>
+          </a>
+        </div>
+
+        <!--Card content-->
+        <div class="card-body">
+          <!--Title-->
+          <h4 class="card-title">Approved Students</h4>
+          <!--Text-->
+          <p class="card-text">
+            View list of Approved projects, See the list of students assigned to
+            the projects, Review CV and Give Feedback.
+          </p>
+          <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+          <a
+            routerLink="/approvedStudents"
+            class="black-text d-flex justify-content-end"
+          >
+            <h5><i class="fas fa-angle-double-right"></i></h5>
+          </a>
+        </div>
+      </div>
+      <!-- Card -->
+    </div>
+  </div>
+  <!-- Client Card Deck -->
+
+  <!-- Student  Card deck -->
+  <div *ngIf="isStudent">
+    <div class="card-deck">
+      <!-- Card -->
+      <div class="card mb-4">
+        <!--Card image-->
+        <div class="view overlay">
+          <img
+            class="card-img-top"
+            src="https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2821%29.jpg"
+            alt="Card image cap"
+          />
+          <a routerLink="/notifications">
+            <div class="mask rgba-white-strong"></div>
+          </a>
+        </div>
+
+        <!--Card content-->
+        <div class="card-body">
+          <!--Title-->
+          <h4 class="card-title">Notifications</h4>
+          <!--Text-->
+          <p class="card-text">
+            Notifications can be viewed here. All the notifications are also
+            available in your email inbox.
+          </p>
+          <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+          <a
+            routerLink="/notifications"
+            class="black-text d-flex justify-content-end"
+          >
+            <h5><i class="fas fa-angle-double-right"></i></h5>
+          </a>
+        </div>
+      </div>
+      <!-- Card -->
+
+      <!-- Card -->
+      <div class="card mb-4">
+        <!--Card image-->
+        <div class="view overlay">
+          <img
+            class="card-img-top"
+            src="https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg"
+            alt="Card image cap"
+          />
+          <a routerLink="student/projectDetails">
+            <div class="mask rgba-white-strong"></div>
+          </a>
+        </div>
+
+        <!--Card content-->
+        <div class="card-body">
+          <!--Title-->
+          <h4 class="card-title">View Available Projects</h4>
+          <!--Text-->
+          <p class="card-text">
+            Students can View available Projects based on their course and
+            choose to send CV or Join Groups for their course.
+          </p>
+          <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+          <a
+            routerLink="student/projectDetails"
+            class="black-text d-flex justify-content-end"
+          >
+            <h5><i class="fas fa-angle-double-right"></i></h5>
+          </a>
+        </div>
+      </div>
+      <!-- Card -->
+    </div>
+
+    <div class="card-deck">
+      <!-- Card -->
+      <div class="card mb-4">
+        <!--Card image-->
+        <div class="view overlay">
+          <img
+            class="card-img-top"
+            src="../assets/images/homeimg2.jpg"
+            alt="Card image cap"
+          />
+          <a routerLink="/bookingslot">
+            <div class="mask rgba-white-strong"></div>
+          </a>
+        </div>
+
+        <!--Card content-->
+        <div class="card-body">
+          <!--Title-->
+          <h4 class="card-title">Book Presentation Slots</h4>
+          <!--Text-->
+          <p class="card-text">
+            Students can Book any Available Presentation Slots by eneterin their
+            Project Id or Group Id.
+          </p>
+          <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+          <a
+            routerLink="/bookingslot"
+            class="black-text d-flex justify-content-end"
+          >
+            <h5><i class="fas fa-angle-double-right"></i></h5>
+          </a>
+        </div>
+      </div>
+      <!-- Card -->
+
+      <!-- Card -->
+      <div class="card mb-4">
+        <!--Card image-->
+        <div class="view overlay">
+          <img
+            class="card-img-top"
+            src="../assets/images/homeimg7.jpg"
+            alt="Card image cap"
+          />
+          <a routerLink="/CalculateWhatIfMarkComponent">
+            <div class="mask rgba-white-strong"></div>
+          </a>
+        </div>
+
+        <!--Card content-->
+        <div class="card-body">
+          <!--Title-->
+          <h4 class="card-title">Calculator</h4>
+          <!--Text-->
+          <p class="card-text">
+            Students can simulate their final marks using this calculator to
+            calculate what if marks.
+          </p>
+          <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+          <a
+            routerLink="/CalculateWhatIfMarkComponent"
+            class="black-text d-flex justify-content-end"
+          >
+            <h5><i class="fas fa-angle-double-right"></i></h5>
+          </a>
+        </div>
+      </div>
+      <!-- Card -->
+    </div>
+  </div>
+  <!-- Student Card Deck -->
+</div>

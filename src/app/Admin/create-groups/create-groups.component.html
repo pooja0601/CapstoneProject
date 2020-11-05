@@ -1,0 +1,103 @@
+<!--Main Navigation-->
+<header>
+
+  <nav class="navbar fixed-top navbar-expand-lg red scrolling-navbar">
+
+      <strong>
+        <span class="material-icons">menu</span>
+        </strong>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent2"
+      aria-controls="navbarSupportedContent2" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <strong>
+              Add Groups to project: {{this.currr_id}}
+        </strong>
+        </li>
+
+      </ul>
+    </div>
+  </nav>
+
+</header>
+<!--Main Navigation-->
+
+<div class="container text-center">
+  <div class="alignright">
+  <button mat-button (click)="openDialog('Add',{})" >Add Group</button>
+</div>
+    <table mat-table [dataSource]="dataSource" #mytable class="my-table mat-elevation-z8">
+   
+      <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+   
+      <!-- Id Column -->
+     <!--  <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> Time Stamp. </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container> -->
+
+      <!-- Proj Name Column -->
+      <ng-container matColumnDef="project_id">
+        <th mat-header-cell *matHeaderCellDef> Project Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.project_id}} </td>
+      </ng-container>
+  
+      <!-- Group name Column -->
+      <ng-container matColumnDef="group_name">
+        <th mat-header-cell *matHeaderCellDef> Group Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.group_name}} </td>
+      </ng-container>
+
+            <!-- Students  Column -->
+ 
+
+      <ng-container matColumnDef="student_one">
+        <th mat-header-cell *matHeaderCellDef> Student One </th>
+        <td mat-cell *matCellDef="let element"> {{element.student_one}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="student_two">
+        <th mat-header-cell *matHeaderCellDef> Student Two </th>
+        <td mat-cell *matCellDef="let element"> {{element.student_two}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="student_three">
+        <th mat-header-cell *matHeaderCellDef> Student Three </th>
+        <td mat-cell *matCellDef="let element"> {{element.student_three}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="student_four">
+        <th mat-header-cell *matHeaderCellDef> Student Four </th>
+        <td mat-cell *matCellDef="let element"> {{element.student_four}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="student_five">
+        <th mat-header-cell *matHeaderCellDef> Student Five</th>
+        <td mat-cell *matCellDef="let element"> {{element.student_five}} </td>
+      </ng-container>
+      <!-- Action Column -->
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let element" class="action-link"> 
+          <a (click)="openDialog('Update',element)">Edit</a> 
+          <div *ngIf = "element.student_one != null || element.student_two != null || element.student_three != null || element.student_four != null || element.student_five != null; else delBut">
+          </div>
+
+          <ng-template #delBut>
+            | <a (click)="openDialog('Delete',element)">Delete</a>  
+          </ng-template>
+
+         
+        </td>
+
+      </ng-container>
+ 
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+   
+  </div>

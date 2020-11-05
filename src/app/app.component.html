@@ -1,0 +1,609 @@
+<!-- <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
+   <img src="../assets/images/unisyd.jpg" class="uniSydImage" /> -->
+
+<!-- <div class="navbar-nav">  -->
+<!-- <a class="nav-item nav-link" routerLink="/">Home</a>
+    <a class="nav-item nav-link" routerLink="/admin" *ngIf="isAdmin"
+      >Upload Details</a
+    >
+    <a class="nav-item nav-link" routerLink="/mailSend" *ngIf="isAdmin"
+      >Send Mail</a
+    >
+    <a class="nav-item nav-link" routerLink="/addProject" *ngIf="isClient"
+      >Add Project</a
+    >
+    <a
+      class="nav-item nav-link"
+      routerLink="/viewProjectDetails"
+      *ngIf="isClient"
+      >viewProjectDetails</a
+    >
+
+    <a class="nav-item nav-link" routerLink="/approvedStudents" *ngIf="isClient"
+      >Approved Students</a
+    >
+    <a class="nav-item nav-link" routerLink="/enterPreference" *ngIf="isStudent"
+      >Enter Preference</a
+    >
+    <a
+      class="nav-item nav-link"
+      routerLink="/student/upload-details"
+      *ngIf="isStudent"
+      >Upload Details</a
+    >
+
+    <a
+      class="nav-item nav-link"
+      routerLink="student/projectDetails"
+      *ngIf="isStudent"
+      >View Projects</a
+    >
+
+    <a class="nav-item nav-link" routerLink="/addGroup" *ngIf="isAdmin"
+      >View Groups Projects</a
+    >
+
+    <a class="nav-item nav-link" routerLink="/editGroups" *ngIf="isAdmin"
+      >Edit Group Projects</a
+    >
+
+    <a class="nav-item nav-link" routerLink="/bookingslot" *ngIf="isStudent"
+      >Book Presentation slot</a
+    >
+    <a class="nav-item nav-link" routerLink="/viewslot" *ngIf="isStudent"
+      >View Presentation slot</a
+    >
+    <a class="nav-item nav-link" routerLink="/pptsession" *ngIf="isAdmin"
+      >Presentation Session</a
+    >
+    <a
+      class="nav-item nav-link"
+      routerLink="/UpdateProjectStatus"
+      *ngIf="isAdmin"
+      >List of projects</a
+    >
+    <a class="nav-item nav-link" routerLink="/Formula" *ngIf="isAdmin"
+      >Formula</a
+    >
+    <a
+      class="nav-item nav-link"
+      routerLink="/ViewStudentsMarks"
+      *ngIf="isAdmin"
+    >
+      Students Mark
+    </a>
+
+    <a
+      class="nav-item nav-link"
+      routerLink="/CalculateStudentMark"
+      *ngIf="isAdmin"
+      >Calculate student mark</a
+    >
+
+    <a
+      class="nav-item nav-link"
+      routerLink="/CalculateWhatIfMarkComponent"
+      *ngIf="isStudent"
+      >Calculate your mark</a
+    >
+    <a class="nav-item nav-link" routerLink="/setProjectId" *ngIf="isAdmin"
+      >Set projects Id</a
+    >
+
+    <a
+      class="nav-item nav-link"
+      routerLink="/StudentsViewprojects"
+      *ngIf="isStudent"
+      >view projects</a
+    >
+    <a class="nav-item nav-link" routerLink="/test" *ngIf="isClient">Test</a>
+    <a class="nav-item nav-link" routerLink="/viewsession" *ngIf="isAdmin"
+      >View Presentation Session</a
+    >
+    <a class="nav-item nav-link" routerLink="/dataAnalysis" *ngIf="isAdmin"
+      >Data Analyis</a
+    > -->
+<!-- </div>
+</nav> -->
+
+<mat-menu #menu="matMenu">
+  <mat-card
+    *ngFor="let not of notifications"
+    class="example-card"
+    (click)="openNotificationPage()"
+  >
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title style="overflow-wrap: anywhere;">{{
+        not.emailContent
+      }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>Sent by : {{ not.sender }}</p>
+    </mat-card-content>
+  </mat-card>
+  <button mat-menu-item routerLink="/notifications">
+    <mat-icon>visibility</mat-icon>
+    <span>See All Notifications</span>
+  </button>
+</mat-menu>
+
+<!-- main app container -->
+
+<mat-sidenav-container class="example-container">
+  <mat-sidenav
+    *ngIf="currentUser"
+    #sidenav
+    mode="side"
+    opened
+    class="example-sidenav"
+    [fixedInViewport]="options.value.fixed"
+    [fixedTopGap]="options.value.top"
+    [fixedBottomGap]="options.value.bottom"
+    [disableClose]="true"
+  >
+    <button class="uniBtn" routerLink="/">
+      <img src="../assets/images/Uni-Logo-Banner-1.jpg" class="uniSydImage" />
+    </button>
+
+    <button
+      mat-icon-button
+      [matMenuTriggerFor]="menu"
+      class="notificationsBtn"
+      (click)="clearBadgeCount()"
+      style="color: white; outline: transparent;"
+    >
+      <mat-icon style="font-size: 30px; margin-left: -50px; margin-right: 7px;"
+        >notifications</mat-icon
+      >
+      <span class="badge" style="margin-left: -50px;" *ngIf="badgeCount > 0"
+        >{{ badgeCount }}
+      </span>
+      Notification
+    </button>
+
+    <button
+      mat-icon-button
+      routerLink="/"
+      class="allBtn"
+      style="color: white; outline: transparent;"
+    >
+      <span
+        class="material-icons"
+        style="
+          color: white;
+          font-size: 30px;
+          margin-left: -70px;
+          margin-right: 2px;
+        "
+      >
+        home
+      </span>
+      Home
+    </button>
+    <!-- client Buttons -->
+    <button
+      mat-icon-button
+      routerLink="/profile"
+      class="allBtn"
+      style="color: white;"
+    >
+      <span
+        class="material-icons"
+        style="
+          color: white;
+          font-size: 30px;
+          margin-left: -70px;
+          margin-right: 2px;
+        "
+      >
+        account_circle
+      </span>
+      Profile
+    </button>
+
+    <!-- <button
+    mat-icon-button
+    routerLink="/register"
+    class="allBtn"
+    style="color: white;"
+  >
+    <span
+      class="material-icons"
+      style="
+        color: white;
+        font-size: 10px;
+        margin-left: -70px;
+        margin-right: 2px;
+      "
+    >
+      account_circle
+    </span>
+    Register
+  </button> -->
+
+    <button
+      mat-icon-button
+      routerLink="/addProject"
+      *ngIf="isClient"
+      class="allBtn"
+    >
+      <span
+        class="material-icons"
+        style="
+          color: white;
+          font-size: 30px;
+          margin-left: -50px;
+          margin-right: 2px;
+        "
+      >
+        post_add
+      </span>
+      Add Project
+    </button>
+
+    <button
+      mat-icon-button
+      routerLink="/viewProjectDetails"
+      *ngIf="isClient"
+      class="allBtn"
+    >
+      <span
+        class="material-icons"
+        style="
+          color: white;
+          font-size: 30px;
+          margin-left: -50px;
+          margin-right: 2px;
+        "
+      >
+        visibility
+      </span>
+      View Projects
+    </button>
+
+    <button
+      mat-icon-button
+      routerLink="/approvedStudents"
+      *ngIf="isClient"
+      class="allBtn"
+    >
+      <span
+        class="material-icons"
+        style="
+          color: white;
+          font-size: 30px;
+          margin-left: -50px;
+          margin-right: 2px;
+        "
+      >
+        group
+      </span>
+      Approved Students
+    </button>
+
+    <!-- Admin Buttons -->
+
+    <button mat-icon-button routerLink="/admin" *ngIf="isAdmin" class="allBtn">
+      <span
+        class="material-icons"
+        style="
+          color: white;
+          font-size: 30px;
+          margin-left: -50px;
+          margin-right: 2px;
+        "
+      >
+        cloud_upload
+      </span>
+      Upload Users
+    </button>
+
+    <button
+      mat-icon-button
+      routerLink="/UpdateProjectStatus"
+      *ngIf="isAdmin"
+      class="allBtn"
+    >
+      <span
+        class="material-icons"
+        style="
+          color: white;
+          font-size: 30px;
+          margin-left: -50px;
+          margin-right: 2px;
+        "
+      >
+        view_list
+      </span>
+      View Project List
+    </button>
+
+    <button
+      mat-icon-button
+      routerLink="/addGroup"
+      *ngIf="isAdmin"
+      class="allBtn"
+    >
+      <span
+        class="material-icons"
+        style="
+          color: white;
+          font-size: 30px;
+          margin-left: -50px;
+          margin-right: 2px;
+        "
+      >
+        group
+      </span>
+      View Groups
+    </button>
+
+    <button
+      mat-icon-button
+      routerLink="/editGroups"
+      *ngIf="isAdmin"
+      class="allBtn"
+    >
+      <span
+        class="material-icons"
+        style="
+          color: white;
+          font-size: 30px;
+          margin-left: -50px;
+          margin-right: 2px;
+        "
+      >
+        edit
+      </span>
+      Assign Student Groups
+    </button>
+
+    <button
+      mat-icon-button
+      routerLink="/pptsession"
+      *ngIf="isAdmin"
+      class="allBtn"
+    >
+      <span
+        class="material-icons"
+        style="
+          color: white;
+          font-size: 30px;
+          margin-left: -50px;
+          margin-right: 2px;
+        "
+      >
+        add_box
+      </span>
+      Add Presentation Slot
+    </button>
+
+    <button
+      mat-icon-button
+      routerLink="/viewsession"
+      *ngIf="isAdmin"
+      class="allBtn"
+    >
+      <span
+        class="material-icons"
+        style="
+          color: white;
+          font-size: 30px;
+          margin-left: -50px;
+          margin-right: 2px;
+        "
+      >
+        visibility
+      </span>
+      View Presentation Slot
+    </button>
+
+    <button
+      mat-icon-button
+      routerLink="/Formula"
+      *ngIf="isAdmin"
+      class="allBtn"
+    >
+      <span
+        class="material-icons"
+        style="
+          color: white;
+          font-size: 30px;
+          margin-left: -50px;
+          margin-right: 2px;
+        "
+      >
+        videogame_asset
+      </span>
+      Formula
+    </button>
+
+    <button
+      mat-icon-button
+      routerLink="/ViewStudentsMarks"
+      *ngIf="isAdmin"
+      class="allBtn"
+    >
+      <span
+        class="material-icons"
+        style="
+          color: white;
+          font-size: 30px;
+          margin-left: -50px;
+          margin-right: 2px;
+        "
+      >
+        ballot
+      </span>
+      Student Mark
+    </button>
+
+    <button
+      mat-icon-button
+      routerLink="/mailSend"
+      *ngIf="isAdmin"
+      class="allBtn"
+    >
+      <span
+        class="material-icons"
+        style="
+          color: white;
+          font-size: 30px;
+          margin-left: -50px;
+          margin-right: 2px;
+        "
+      >
+        mail
+      </span>
+      Send Notification
+    </button>
+
+    <button
+      mat-icon-button
+      routerLink="/dataAnalysis"
+      *ngIf="isAdmin"
+      class="allBtn"
+    >
+      <span
+        class="material-icons"
+        style="
+          color: white;
+          font-size: 30px;
+          margin-left: -50px;
+          margin-right: 2px;
+        "
+      >
+        poll
+      </span>
+      Data Analysis
+    </button>
+
+    <!-- Student Buttons -->
+
+    <button
+      mat-icon-button
+      routerLink="student/projectDetails"
+      *ngIf="isStudent"
+      class="allBtn"
+    >
+      <span
+        class="material-icons"
+        style="
+          color: white;
+          font-size: 30px;
+          margin-left: -50px;
+          margin-right: 2px;
+        "
+      >
+        view_list
+      </span>
+      View Projects
+    </button>
+
+    <button
+      mat-icon-button
+      routerLink="/bookingslot"
+      *ngIf="isStudent"
+      class="allBtn"
+    >
+      <span
+        class="material-icons"
+        style="
+          color: white;
+          font-size: 30px;
+          margin-left: -50px;
+          margin-right: 2px;
+        "
+      >
+        assignment
+      </span>
+      Book Presentation Slot
+    </button>
+
+    <button
+      mat-icon-button
+      routerLink="/viewslot"
+      *ngIf="isStudent"
+      class="allBtn"
+    >
+      <span
+        class="material-icons"
+        style="
+          color: white;
+          font-size: 30px;
+          margin-left: -50px;
+          margin-right: 2px;
+        "
+      >
+        visibility
+      </span>
+      View Presentation Slot
+    </button>
+
+    <button
+      mat-icon-button
+      routerLink="/CalculateWhatIfMarkComponent"
+      *ngIf="isStudent"
+      class="allBtn"
+    >
+      <span
+        class="material-icons"
+        style="
+          color: white;
+          font-size: 30px;
+          margin-left: -50px;
+          margin-right: 2px;
+        "
+      >
+        iso
+      </span>
+      Mark calculation
+    </button>
+    <button
+      mat-icon-button
+      routerLink="/adminFeedback"
+      *ngIf="isAdmin"
+      class="allBtn"
+    >
+      <span
+        class="material-icons"
+        style="
+          color: white;
+          font-size: 30px;
+          margin-left: -50px;
+          margin-right: 2px;
+        "
+      >
+        feedback
+      </span>
+      Feedback
+    </button>
+
+    <button
+      mat-icon-button
+      (click)="logout()"
+      class="logoutBtn"
+      style="color: white; outline: transparent;"
+    >
+      <span
+        class="material-icons"
+        style="
+          color: white;
+          font-size: 30px;
+          margin-left: -66px;
+          margin-right: 2px;
+        "
+      >
+        exit_to_app
+      </span>
+      Logout
+    </button>
+  </mat-sidenav>
+
+  <mat-sidenav-content [formGroup]="options">
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

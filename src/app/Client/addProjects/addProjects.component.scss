@@ -1,0 +1,120 @@
+.clearBtn {
+  background-color: transparent;
+  border: none;
+}
+.deleteNameButton {
+  background-color: transparent;
+  border: none;
+}
+.addNameButton {
+  background-color: transparent;
+  border: none;
+}
+.deleteMailButton {
+  background-color: transparent;
+  border: none;
+}
+.addMailButton {
+  background-color: transparent;
+  border: none;
+}
+.title {
+  width: 90%;
+}
+.projectDiv {
+  margin-top: 15px;
+  width: 100%;
+  outline: 1.4px solid lightgrey;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+.desTextArea {
+  height: 15em;
+}
+.desWidth {
+  width: 90%;
+}
+
+// .input[type="radio"] {
+//   margin: 0 10px 0 10px;
+// }
+.mat-radio-button {
+  margin-right: 40px;
+}
+.projectType {
+  margin-right: 20px;
+  display: inline-block;
+}
+
+.submitBtn {
+  margin-left: 27.5em;
+  background: #2d3b45;
+  color: white;
+}
+// .removeButton {
+//   background: #343a40;
+//   color: lightgrey;
+//   display: inline-block;
+// }
+
+.supButton {
+  background: #2d3b45;
+  color: white;
+  display: inline-block;
+  margin-right: 5px;
+  pointer-events: auto;
+}
+// .projectType {
+//   display: inline;
+//   white-space: nowrap;
+//   margin-right: 50px;
+// }
+.supName {
+  width: 20em;
+
+  // background-color: rgba(0, 0, 0, 0.03);
+  // outline: 1.4px solid lightgrey;
+  // border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+.supMail {
+  width: 20em;
+  margin-left: 5.4em;
+  // background-color: rgba(0, 0, 0, 0.03);
+}
+
+.cancelBtn {
+  margin-left: 15px;
+  background: #2d3b45;
+  color: white;
+}
+
+.red {
+  background-color: #d0caca8c !important;
+}
+
+b,
+strong {
+  font-weight: bolder;
+  color: black;
+  margin-left: 25px;
+  font-size: larger;
+}
+
+.container {
+  margin-top: 136px;
+  width: 100%;
+}
+
+.card strong {
+  margin-left: 5px;
+}
+
+.fixed-top {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 230px;
+  z-index: 1030;
+  height: 100px;
+}

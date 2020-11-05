@@ -1,0 +1,66 @@
+<header>
+  <nav class="navbar fixed-top navbar-expand-lg red scrolling-navbar">
+    <strong>
+      <span class="material-icons">menu</span>
+    </strong>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent2"
+      aria-controls="navbarSupportedContent2"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <strong>
+            Profile
+          </strong>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+<div class="container">
+  <form>
+    <mat-card *ngFor="let v of view" class="example-card">
+      <mat-card-header>
+        <mat-card-title class="title">
+          <p>Hello {{ v.firstName }} {{ v.lastName + "," }}</p>
+        </mat-card-title>
+
+        <div>
+          <img
+            mat-card-avatar
+            class="profile-image"
+            [src]="'assets/images/default-profile-photo.png'"
+          />
+        </div>
+      </mat-card-header>
+      <mat-card-content class="content">
+        <p><strong>First Name:</strong> {{ v.firstName }}</p>
+        <br />
+        <p><strong>Last Name:</strong> {{ v.lastName }}</p>
+        <br />
+        <p><strong>Email Id:</strong> {{ v.email }}</p>
+        <br />
+        <p><strong>Role :</strong> {{ v.role }}</p>
+        <br />
+        <p><strong>username:</strong> {{ v.username }}</p>
+        <br />
+        <p>
+          <strong>password:</strong
+          ><button mat-button color="primary" (click)="changepwd()">
+            Change password
+          </button>
+        </p>
+
+        <p *ngIf="student"><strong>Course :</strong> {{ v.course }}</p>
+      </mat-card-content>
+    </mat-card>
+  </form>
+</div>

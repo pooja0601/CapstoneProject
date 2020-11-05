@@ -1,0 +1,86 @@
+<header>
+  <nav class="navbar fixed-top navbar-expand-lg red scrolling-navbar">
+    <strong>
+      <span class="material-icons">menu</span>
+    </strong>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent2"
+      aria-controls="navbarSupportedContent2"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <strong>
+            Project Analysis
+          </strong>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+<div class="container">
+  <!-- <label>Project status</label> -->
+  <div style="width: 50%;">
+    <div class="bar">
+      <label style="margin-left: 40%;"><strong>Project Status</strong></label>
+
+      <canvas
+        baseChart
+        [datasets]="barChartData"
+        [labels]="barChartLabels"
+        [options]="barChartOptions"
+        [legend]="barChartLegend"
+        [chartType]="barChartType"
+      ></canvas>
+    </div>
+
+    <div class="bar">
+      <label style="margin-left: 35%;"> <strong>Students</strong></label>
+      <canvas
+        baseChart
+        [datasets]="studentChartData"
+        [labels]="studentChartLabels"
+        [options]="studentChartOptions"
+        [legend]="studentChartLegend"
+        [chartType]="studentChartType"
+      ></canvas>
+    </div>
+  </div>
+  <br />
+  <div style="width: 50%;">
+    <div class="doughnut" *ngIf="doughnutChartLabels && doughnutChartData">
+      <label style="margin-left: 35%;"><strong>Project Types</strong></label>
+      <canvas
+        baseChart
+        [data]="doughnutChartData"
+        [labels]="doughnutChartLabels"
+        [chartType]="doughnutChartType"
+        [colors]="pieChartColors"
+      ></canvas>
+    </div>
+
+    <div
+      class="doughnut"
+      style="margin-top: 49px;"
+      *ngIf="slotChartLabels && slotChartData"
+    >
+      <label style="margin-left: 35%;"
+        ><strong>Presentation slots</strong></label
+      >
+      <canvas
+        baseChart
+        [data]="slotChartData"
+        [labels]="slotChartLabels"
+        [chartType]="slotChartType"
+        [colors]="slotChartColors"
+      ></canvas>
+    </div>
+  </div>
+</div>

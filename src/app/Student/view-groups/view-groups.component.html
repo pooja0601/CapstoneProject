@@ -1,0 +1,93 @@
+<div class="container">
+  <mat-card *ngFor="let project of projects" class="example-card">
+    Project Title: {{ project.title }}
+
+    <mat-accordion>
+      <mat-expansion-panel
+        *ngFor="let group of project.groups"
+        class="expansionPanel"
+      >
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{ group.group_name }}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <mat-label>1:</mat-label>
+        <mat-form-field>
+          <input
+            matInput
+            class="inputName"
+            disabled
+            value="{{ group.student_one }}"
+          />
+        </mat-form-field>
+
+        <mat-label>2:</mat-label>
+        <mat-form-field>
+          <input
+            matInput
+            class="inputName"
+            disabled
+            value="{{ group.student_two }}"
+          />
+        </mat-form-field>
+
+        <mat-label>3:</mat-label>
+        <mat-form-field>
+          <input
+            matInput
+            class="inputName"
+            disabled
+            value="{{ group.student_three }}"
+          />
+        </mat-form-field>
+
+        <mat-label>4:</mat-label>
+        <mat-form-field>
+          <input
+            matInput
+            class="inputName"
+            disabled
+            value="{{ group.student_four }}"
+          />
+        </mat-form-field>
+
+        <mat-label>5:</mat-label>
+        <mat-form-field>
+          <input
+            matInput
+            class="inputName"
+            disabled
+            value="{{ group.student_five }}"
+          />
+        </mat-form-field>
+
+        <form [formGroup]="profileForm">
+          <input matInput formControlName="name" />
+        </form>
+        <mat-action-row>
+          <button
+            mat-button
+            [disabled]="joinHidden || group.IsPublished"
+            (click)="joinGroup(currentUser, group.group_name, group.project_id)"
+          >
+            JOIN
+          </button>
+          <button
+            mat-button
+            [disabled]="group.IsPublished"
+            *ngIf="group.isHidden && !leaveBtnHidden"
+            (click)="
+              leaveGroup(currentUser, group.group_name, group.project_id)
+            "
+          >
+            LEAVE
+          </button>
+
+          <!-- <button mat-button (click)="">End</button> -->
+        </mat-action-row>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </mat-card>
+</div>

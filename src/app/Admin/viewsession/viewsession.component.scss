@@ -1,0 +1,48 @@
+th.mat-header-cell,
+td.mat-cell,
+td.mat-footer-cell {
+  padding: 20px;
+}
+
+.button {
+  background-color: #2d3b45;
+  color: white;
+}
+
+// .container{
+//   justify-content: flex-end;
+//   width: 100%;
+// }
+
+table {
+  width: 100%;
+}
+.fixed-top {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 230px;
+  z-index: 1030;
+  height: 100px;
+}
+
+.red {
+  background-color: #d0caca8c !important;
+}
+
+b,
+strong {
+  font-weight: bolder;
+  color: black;
+  margin-left: 25px;
+  font-size: larger;
+}
+
+.container {
+  margin-top: 136px;
+  width: 100%;
+}
+
+.card strong {
+  margin-left: 5px;
+}

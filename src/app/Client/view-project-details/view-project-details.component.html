@@ -1,0 +1,125 @@
+<!--Main Navigation-->
+<header>
+  <nav class="navbar fixed-top navbar-expand-lg red scrolling-navbar">
+    <strong>
+      <span class="material-icons">menu</span>
+    </strong>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent2"
+      aria-controls="navbarSupportedContent2"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <strong>
+            View Projects
+          </strong>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<!-- <div *ngIf="view"> -->
+<div class="container">
+  <div fxLayout="row" fxLayoutAlign="start center">
+    <mat-card *ngFor="let v of view" class="example-card">
+      <mat-card-header>
+        <mat-card-title>{{ v.title }}</mat-card-title>
+        <!-- <mat-card-subtitle>Project Details</mat-card-subtitle> -->
+        <!-- <mat-card-subtitle
+       -->
+        <span style="margin-left: auto;"> <b> Status:</b> {{ v.status }} </span>
+        <span
+          *ngIf="v.status == 'pending'"
+          class="material-icons"
+          style="color: darkorange;"
+        >
+          timer
+        </span>
+        <span
+          *ngIf="v.status == 'Approved'"
+          class="material-icons"
+          style="color: rgb(0, 255, 136);"
+        >
+          check
+        </span>
+        <span
+          *ngIf="v.status == 'Rejected'"
+          class="material-icons"
+          style="color: rgb(255, 0, 0);"
+        >
+          close
+        </span>
+        <!-- </mat-card-subtitle> -->
+      </mat-card-header>
+      <mat-card-content>
+        <p><b>Supervisor:</b>{{ v.supervisorNames }}</p>
+        <p><b>Project Mode: </b> {{ v.mode }}</p>
+        <p><b>Project Type:</b> {{ v.type }}</p>
+        <p><b>Project Description:</b> {{ v.description }}</p>
+      </mat-card-content>
+      <!-- <mat-card-actions> -->
+      <div class="matAction">
+        <button class="viewBtn" mat-raised-button (click)="viewProject(v.id)">
+          <span class="material-icons">
+            remove_red_eye
+          </span>
+          View
+        </button>
+        <button
+          disabled="{{ v.approved }}"
+          class="editBtn"
+          mat-raised-button
+          (click)="submit(v.id)"
+        >
+          <span class="material-icons">
+            create
+          </span>
+          Edit
+        </button>
+
+        <button
+          disabled="{{ v.approved }}"
+          class="deleteBtn"
+          mat-raised-button
+          (click)="delete(v.id)"
+        >
+          <span class="material-icons">
+            delete
+          </span>
+          Delete
+        </button>
+
+        <button
+          *ngIf="v.isApproved && v.mode"
+          class="reviewBtn"
+          disabled="{{ v.assigned }}"
+          mat-raised-button
+          (click)="review(v.project_id)"
+        >
+          <span class="material-icons">
+            remove_red_eye
+          </span>
+          ReviewStudent
+        </button>
+      </div>
+
+      <!-- </mat-card-actions> -->
+    </mat-card>
+  </div>
+</div>
+<ng-template #deleteAPIDialog>
+  <h2 matDialogTitle>Are you sure you want to delete the project?</h2>
+  <mat-dialog-actions align="end">
+    <button mat-button matDialogClose="no">No</button>
+    <button mat-button matDialogClose="yes">Yes</button>
+  </mat-dialog-actions>
+</ng-template>

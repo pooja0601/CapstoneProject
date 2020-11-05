@@ -1,0 +1,9 @@
+<div *ngIf="files">
+  <button
+    mat-raised-button
+    *ngFor="let file of files"
+    (click)="downloadFile(file)"
+  >
+    Download CV
+  </button>
+</div>

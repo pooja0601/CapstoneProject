@@ -1,0 +1,52 @@
+.example-card {
+  margin-top: 15px;
+}
+
+.matAction {
+  display: flex;
+}
+.viewProjectBtn {
+  margin-left: auto;
+  background: #2d3b45;
+  color: white;
+}
+
+.joinGroupBtn {
+  margin-left: 2px;
+  background: #2d3b45;
+  color: white;
+}
+//   .example-header-image {
+//     background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+//     background-size: cover;
+//   }
+
+.red {
+  background-color: #d0caca8c !important;
+}
+
+b,
+strong {
+  font-weight: bolder;
+  color: black;
+  margin-left: 25px;
+  font-size: larger;
+}
+
+.container {
+  margin-top: 136px;
+  width: 100%;
+}
+
+.card strong {
+  margin-left: 5px;
+}
+
+.fixed-top {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 230px;
+  z-index: 1030;
+  height: 100px;
+}

@@ -1,0 +1,40 @@
+/* You can add global styles to this file, and also import other style files */
+a {
+  cursor: pointer;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.confirm-dialog-container #cancel-button {
+  height: 40px;
+  width: 35%;
+  // background-color: #fc7169;
+  color: black;
+  margin-left: 30px;
+}
+
+.confirm-dialog-container #confirm-button {
+  height: 40px;
+  width: 35%;
+  // background-color: blue;
+  color: black;
+
+  margin-left: 30px;
+}
+
+.confirm-dialog-container span.content-span {
+  padding: 35px 16px;
+  text-align: center;
+  font-size: 15px;
+}
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~bootstrap/dist/css/bootstrap.css";

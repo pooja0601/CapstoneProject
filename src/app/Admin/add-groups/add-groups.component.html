@@ -1,0 +1,52 @@
+<header>
+  <nav class="navbar fixed-top navbar-expand-lg red scrolling-navbar">
+    <strong>
+      <span class="material-icons">menu</span>
+    </strong>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent2"
+      aria-controls="navbarSupportedContent2"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <strong>
+            Create Groups for projects
+          </strong>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<!-- <mat-toolbar>
+  <span>Create Groups for Projects</span>
+</mat-toolbar> -->
+
+<div class="container">
+  <mat-card *ngFor="let v of proj" style="margin-top: 15px;">
+    <mat-card-header>
+      <mat-card-title>Project Code: {{ v.project_id }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-header>
+      <mat-card-subtitle>Title: {{ v.title }}</mat-card-subtitle>
+      <mat-card-subtitle>Required groups: {{ v.groupNo }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="card-container-right">
+      <button
+        mat-button
+        [routerLink]="['/createGroup', v.project_id]"
+        (click)="submit(v.project_id)"
+      >
+        View Groups
+      </button>
+    </mat-card-content>
+  </mat-card>
+</div>

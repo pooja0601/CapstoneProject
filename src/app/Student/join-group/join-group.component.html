@@ -1,0 +1,42 @@
+<div class="closeBtnDiv">
+  <button mat-button class="closeButton" [mat-dialog-close]="true">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+<h3>Project: {{ data.projectId }}</h3>
+<h4>Group Name: {{ data.groupName }}</h4>
+
+<form [formGroup]="groupName" (submit)="submit()">
+  <div class="inputName">
+    <mat-form-field>
+      <mat-label>Team Member 1</mat-label>
+      <input matInput formControlName="name1" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Team Member 2</mat-label>
+      <input matInput formControlName="name2" />
+    </mat-form-field>
+
+    <br />
+    <mat-form-field>
+      <mat-label>Team Member 3</mat-label>
+      <input matInput formControlName="name3" />
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+      <mat-label>Team Member 4 </mat-label>
+      <input matInput formControlName="name4" />
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+      <mat-label>Team Member 5</mat-label>
+      <input matInput formControlName="name5" />
+    </mat-form-field>
+  </div>
+  <button *ngIf="data.joinBtn" class="joinBtn" mat-raised-button>
+    Join
+  </button>
+  <button *ngIf="data.leaveBtn" class="joinBtn" mat-raised-button>
+    Leave
+  </button>
+</form>

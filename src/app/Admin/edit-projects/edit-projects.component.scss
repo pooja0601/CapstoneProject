@@ -1,0 +1,255 @@
+
+.dropbtn {
+  display: inline-block;
+  background-color: gray;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  display: inline-block;
+  position: relative;
+  display: inline-block;
+  background-color: antiquewhite;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: lightgray;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: lightgray;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 90px;
+  height: 34px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  display: inline-block;
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #FF586B;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #0CC27E;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(55px);
+  -ms-transform: translateX(55px);
+  transform: translateX(55px);
+}
+
+/*------ ADDED CSS ---------*/
+.on {
+  display: inline-block;
+}
+
+.on, .off {
+  display: inline-block;
+  color: white;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  top: 50%;
+}
+
+.on {
+  left: 45%;
+}
+
+.off {
+  left: 55%;
+}
+
+input:checked + .slider .on {
+  display: block;
+}
+
+input:checked + .slider .off {
+  display: none;
+}
+
+/*--------- END --------*/
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+.uploadBtn {
+  //display: inline-block;
+
+  position:center;
+  background: #343A40;
+  color: lightgreen;
+}
+.tab {
+  display: inline-block;
+  margin-left: 2.5em
+}
+.mat-select{
+    width:10px;
+
+}
+.clearBtn {
+  background-color: transparent;
+  border: none;
+}
+
+.deleteNameButton {
+  background-color: transparent;
+  border: none;
+}
+
+.addNameButton {
+  background-color: transparent;
+  border: none;
+}
+
+.deleteMailButton {
+  background-color: transparent;
+  border: none;
+}
+
+.addMailButton {
+  background-color: transparent;
+  border: none;
+}
+
+.title {
+  width: 50em;
+}
+
+.projectDiv {
+  width: 65em;
+  outline: 1.4px solid lightgrey;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 0;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.desTextArea {
+  height: 15em;
+}
+
+.desWidth {
+  width: 50em;
+}
+
+// .input[type="radio"] {
+//   margin: 0 10px 0 10px;
+// }
+.mat-radio-button {
+  margin-right: 40px;
+}
+
+mat-selection-list {
+  width: 90%;
+}
+mat-card {
+    max-width:80%;
+}
+.container{
+    max-width:100%;
+}
+button {
+  background-color: #2d3b45;
+  color: white;
+}
+button:hover {
+  background-color: dimgrey;
+  color: white;
+}
+.submitForm {
+  margin-left:40%;
+}
+
+
+.fixed-top {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 230px;
+  z-index: 1030;
+  height: 100px;
+}
+
+.red {
+  background-color: #d0caca8c !important;
+}
+
+b, strong {
+  font-weight: bolder;
+  color: black;
+  margin-left: 25px;
+  font-size: larger;
+}
+
+
+
+
+.card strong {
+  margin-left: 5px;
+}
+mat-card {
+  margin-top: 136px;
+}

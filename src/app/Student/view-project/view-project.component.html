@@ -1,0 +1,75 @@
+<div class="container">
+  <div class="viewProjectDiv">
+    <form [formGroup]="profileForm">
+      <mat-form-field style="margin-left: 20%; width: 790px;">
+        <mat-label>Project Title:</mat-label>
+        <input
+          matInput
+          placeholder="project title"
+          formControlName="title"
+          class="title"
+        />
+      </mat-form-field>
+      <br />
+      <mat-form-field style="width: 90%; margin-left: 45px;">
+        <mat-label>Project Description:</mat-label>
+        <textarea
+          matInput
+          formControlName="description"
+          style="height: 270px;"
+        ></textarea>
+      </mat-form-field>
+      <br />
+      <mat-form-field style="width: 90%; margin-left: 45px;">
+        <mat-label>Project Functionalities:</mat-label>
+        <textarea
+          matInput
+          formControlName="functionalities"
+          style="height: 80px;"
+        ></textarea>
+      </mat-form-field>
+      <br />
+      <mat-form-field style="width: 90%; margin-left: 45px;">
+        <mat-label>Project mode: </mat-label>
+        <input matInput formControlName="mode" class="mode" />
+      </mat-form-field>
+      <br />
+      <mat-form-field style="width: 90%; margin-left: 45px;">
+        <mat-label>Project type:</mat-label>
+        <input matInput formControlName="type" class="type" />
+      </mat-form-field>
+      <br />
+
+      <mat-form-field
+        class="example-chip-list"
+        style="width: 90%; margin-left: 45px;"
+      >
+        <mat-label>Required skills:</mat-label>
+        <input matInput formControlName="skills" class="skills" />
+      </mat-form-field>
+      <br />
+      <mat-form-field style="width: 90%; margin-left: 45px;">
+        <mat-label>Contact User: </mat-label>
+        <input matInput formControlName="contactUsers" class="contactUsers" />
+      </mat-form-field>
+      <br />
+      <mat-form-field style="width: 90%; margin-left: 45px;">
+        <mat-label>Contact Emails:</mat-label>
+        <input matInput formControlName="contactEmails" class="contactEmails" />
+      </mat-form-field>
+      <br />
+
+      <button
+        *ngIf="individual"
+        class="uploadBtn"
+        mat-raised-button
+        (click)="uploadCV()"
+      >
+        <span class="material-icons" style="color: lightgrey;">
+          attachment
+        </span>
+        Upload CV
+      </button>
+    </form>
+  </div>
+</div>

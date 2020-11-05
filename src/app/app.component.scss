@@ -1,0 +1,100 @@
+.uniSydImage {
+  height: 100px;
+  width: 230px;
+}
+
+.toolbar {
+  background-color: #333;
+}
+
+mat-icon {
+  color: white;
+}
+
+.notificationsBtn {
+  background-color: transparent;
+  border: none;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+mat-icon {
+  color: white;
+}
+
+.notificationsBtn {
+  background-color: transparent;
+  border: none;
+  margin-left: 75px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.logoutBtn {
+  background-color: transparent;
+  border: none;
+  margin-left: 75px;
+  margin-top: 30px;
+  outline: transparent;
+}
+
+.allBtn {
+  background-color: transparent;
+  border: none;
+  margin-left: 75px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: white;
+  outline: transparent;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.badge {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  font-size: 12px;
+  line-height: 13px;
+  border-radius: 50%;
+  width: 20px;
+  height: 19px;
+  background-color: #ff4500;
+  border: 1px solid #333;
+  color: #ffffff;
+  text-align: center;
+}
+
+mat-card {
+  margin-bottom: 3px;
+}
+
+.example-container {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+}
+
+.example-sidenav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 230px;
+  background: #2d3b45;
+}
+
+.uniBtn {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+::ng-deep .mat-drawer-inner-container {
+  overflow-x: hidden !important; /* or 100% */
+}

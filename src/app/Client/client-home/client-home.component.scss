@@ -1,0 +1,40 @@
+.uniSydImage {
+  height: 65px;
+  width: 65px;
+}
+
+.toolbar {
+  background-color: #333;
+}
+
+mat-icon {
+  color: white;
+}
+
+.notificationsBtn {
+  background-color: transparent;
+  border: none;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.badge {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  font-size: 12px;
+  line-height: 13px;
+  border-radius: 50%;
+  width: 20px;
+  height: 19px;
+  background-color: #ff4500;
+  border: 1px solid #333;
+  color: #ffffff;
+  text-align: center;
+}
+
+mat-card {
+  margin-bottom: 3px;
+}

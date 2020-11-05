@@ -1,0 +1,143 @@
+<!--Main Navigation-->
+<header>
+  <nav class="navbar fixed-top navbar-expand-lg red scrolling-navbar">
+    <strong>
+      <span class="material-icons">menu</span>
+    </strong>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent2"
+      aria-controls="navbarSupportedContent2"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <strong>
+            Update formula
+          </strong>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+<!--Main Navigation-->
+<div style="margin-top: 13%;">
+  <mat-card *ngIf="updateField">
+    <h4>Update Formula</h4>
+    <form [formGroup]="profileForm" (submit)="submitForm()">
+      <div style="display: inline-flex;">
+        <div>
+          <label>Enter Project Proposal Weight (%):</label>
+          <mat-form-field class="title" appearance="fill">
+            <input
+              matInput
+              type="number"
+              min="1"
+              formControlName="ProjectProposalWeight"
+            />
+          </mat-form-field>
+        </div>
+        <br />
+
+        <div>
+          <label>Enter Progress Report Weight (%):</label>
+          <mat-form-field class="title" appearance="fill">
+            <input
+              matInput
+              type="number"
+              min="1"
+              formControlName="ProgressReportWeight"
+            />
+          </mat-form-field>
+        </div>
+        <div>
+          <label>Enter Final Report Weight (%):</label>
+          <mat-form-field class="title" appearance="fill">
+            <input
+              matInput
+              type="number"
+              min="1"
+              formControlName="FinalReportWeight"
+            />
+          </mat-form-field>
+        </div>
+
+        <div>
+          <label>Enter Presentation Weight (%):</label>
+          <mat-form-field class="title" appearance="fill">
+            <input
+              matInput
+              type="number"
+              min="1"
+              formControlName="PresentationWeight"
+            />
+          </mat-form-field>
+        </div>
+        <br />
+      </div>
+      <button class="btn">Submit</button>
+    </form>
+  </mat-card>
+  <div *ngIf="formula">
+    <mat-card *ngIf="formula">
+      <div *ngIf="formula[0]">
+        <h4 style="margin-left: 35%;">Current Formula</h4>
+        <table class="mat-table">
+          <tr class="mat-header-row">
+            <th class="mat-header-cell">No.</th>
+            <th class="mat-header-cell">Type</th>
+            <th class="mat-header-cell">Weight</th>
+          </tr>
+          <tr class="mat-row">
+            <td class="mat-cell">1</td>
+            <td class="mat-cell">Project Proposal</td>
+            <td class="mat-cell">{{ formula[0].Project_Proposal_Weight }}</td>
+          </tr>
+          <tr class="mat-row">
+            <td class="mat-cell">2</td>
+            <td class="mat-cell">Progress Report</td>
+            <td class="mat-cell">{{ formula[0].Progress_Report_Weight }}</td>
+          </tr>
+
+          <tr class="mat-row">
+            <td class="mat-cell">3</td>
+            <td class="mat-cell">Final Report</td>
+            <td class="mat-cell">{{ formula[0].Final_Report_Weight }}</td>
+          </tr>
+
+          <tr class="mat-row">
+            <td class="mat-cell">4</td>
+            <td class="mat-cell">Final Presentation</td>
+            <td class="mat-cell">{{ formula[0].Presentation_Weight }}</td>
+          </tr>
+        </table>
+        <!-- <h5>
+          Project_Proposal_Weight:
+          {{ formula[0].Project_Proposal_Weight }}<br />
+          Progress_Report_Weight:
+          {{ formula[0].Progress_Report_Weight }}<br />
+          Final Report Weight:
+          {{ formula[0].Final_Report_Weight }}<br />
+          Presentation_Weight:
+          {{ formula[0].Presentation_Weight }}<br />
+        </h5> -->
+      </div>
+      <div *ngIf="!formula[0]">
+        <h5>Currently there is no formula in the database!</h5>
+      </div>
+      <br />
+      <div>
+        <label><strong>Update/Add weights:</strong></label>
+        <mat-slide-toggle (change)="updateFields($event)">Yes</mat-slide-toggle>
+      </div>
+
+      <!-- <button mat-raised-button (click)="updateFields($event)">Update</button> -->
+    </mat-card>
+  </div>
+</div>

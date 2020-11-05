@@ -1,0 +1,209 @@
+<!--Main Navigation-->
+<header>
+
+  <nav class="navbar fixed-top navbar-expand-lg red scrolling-navbar">
+
+    <strong>
+      <span class="material-icons">menu</span>
+    </strong>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent2"
+            aria-controls="navbarSupportedContent2" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <strong>
+           Update project details
+          </strong>
+        </li>
+
+      </ul>
+    </div>
+  </nav>
+
+</header>
+<!--Main Navigation-->
+<div class="container">
+  <mat-card *ngIf="projectStored">
+    <form [formGroup]="profileForm" (submit)="submitForm()">
+      <label> Project status:</label> &nbsp;
+      <b *ngIf="projectStored.status">{{ projectStored.status }}</b>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <label> Project mode:</label> &nbsp;
+      <b *ngIf="projectStored.status">{{ projectStored.mode }}</b><br />
+      <label>Project Title:</label>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+      <div>
+        <mat-form-field class="title" appearance="fill">
+          <mat-label> Project Title</mat-label>
+          <input matInput formControlName="title" />
+        </mat-form-field>
+      </div>
+      <br />
+
+      <mat-selection-list formControlName="type">
+        <mat-label>Select project type:</mat-label>
+        <mat-list-option value="information System">Information systems</mat-list-option>
+        <mat-list-option value="software">Software</mat-list-option>
+        <mat-list-option value="data Analysis">Data Analysis</mat-list-option>
+        <mat-list-option value="other">Other</mat-list-option>
+      </mat-selection-list><br />
+      <label> Please enter Project Id:</label>
+      (Please note that project id shooud be like "CS11")
+      <div>
+        <mat-form-field class="title" appearance="fill">
+          <mat-label> Project id</mat-label>
+          <input matInput formControlName="project_id" />
+        </mat-form-field>
+      </div>
+      <div *ngIf="projectModeGroup">
+        <label> Please Choose Project unit code:</label>
+        <mat-radio-group formControlName="unitCode"
+                         aria-label="Enter Project unit code:">
+          <br />
+          <mat-radio-button value="COMP5703">COMP5703</mat-radio-button>
+        </mat-radio-group>
+        <br /><br />
+        <div>
+          <label> Number of groups:</label>
+          <mat-form-field class="title" appearance="fill">
+            <mat-label> Group numbers</mat-label>
+            <input matInput type="number" min="1" formControlName="groupNo" />
+          </mat-form-field>
+        </div>
+      </div>
+      <div *ngIf="projectModeIndividual">
+        <label> Please Choose Project unit code:</label>
+        <mat-radio-group formControlName="unitCode"
+                         aria-label="Enter Project unit code:">
+          <br />
+          <mat-radio-button value="COMP5707">COMP5707</mat-radio-button>
+          <mat-radio-button value="COMP5708">COMP5708</mat-radio-button>
+          <mat-radio-button value="COMP5709">COMP5709</mat-radio-button>
+        </mat-radio-group>
+        <br />
+      </div>
+      <label>Enter Project Description:</label>
+      <div>
+        <mat-form-field class="desWidth" appearance="fill">
+          <mat-label>project description</mat-label>
+          <textarea class="desTextArea"
+                    matInput
+                    formControlName="description"></textarea>
+
+        </mat-form-field>
+      </div>
+      <label>Enter Project Functionalities:</label>
+      <div>
+        <mat-form-field class="desWidth" appearance="fill">
+          <mat-label>project Functionalities</mat-label>
+          <textarea class="desTextArea"
+                    matInput
+                    formControlName="functionalities"></textarea>
+        </mat-form-field>
+      </div>
+      <div>
+        <label>Required skills</label>
+        <div>
+          <mat-form-field class="title" appearance="fill">
+            <mat-label>Required skills</mat-label>
+            <input matInput formControlName="requirementSkills" />
+          </mat-form-field>
+        </div>
+      </div>
+      <div>
+        <label>Supervisors Name</label>
+        <div>
+          <mat-form-field class="title" appearance="fill">
+            <mat-label>Supervisor Name</mat-label>
+            <input matInput formControlName="supervisorNames" />
+          </mat-form-field>
+        </div>
+      </div>
+      <div>
+        <label>Supervisors emails</label>
+        <div>
+          <mat-form-field class="title" appearance="fill">
+            <mat-label>Supervisors emails</mat-label>
+            <input matInput type="email" formControlName="supervisorEmails" />
+          </mat-form-field>
+        </div>
+      </div>
+      <!-- <label>Enter Project Supervisors:</label>
+      <input matInput
+             placeholder="enter project supervisors"
+             formControlName="supervisorNames" />
+      <br />-->
+
+      <br />
+      <br />
+
+
+      <button class="btn submitForm" mat-raised-button>
+        Update details
+      </button><br />
+      <div *ngIf="error" class="alert alert-danger mt-3 mb-0 tab">
+        {{ error }}
+        <button type="button"
+                class="close"
+                data-dismiss="alert"
+                aria-label="Close"
+                (click)="closeEAlert()">
+          <span aria-hidden="true">&times;</span>
+          <br />
+        </button>
+      </div>
+      <br />
+      <div *ngIf="success"
+           class="alert alert-success alert-dismissible fade show"
+           role="alert">
+        <strong>{{ success }}</strong>
+        <button type="button"
+                class="close"
+                data-dismiss="alert"
+                aria-label="Close"
+                (click)="closeSAlert()">
+          <span aria-hidden="true">&times;</span>
+          <br />
+        </button>
+      </div>
+    </form>
+    <br />
+    <mat-label class="submitForm">Select project status:</mat-label>
+    <mat-select (selectionChange)="selectedStatus($event.value)"
+                class="mat-select">
+      <mat-option value="Approve"
+                  [disabled]="
+          projectStored.unitCode == null || projectStored.project_id == null
+        ">Approve</mat-option>
+      <mat-option value="Reject">Reject</mat-option>
+      <!--  <mat-option value="COMP5708">COMP5708</mat-option>
+      <mat-option value="COMP5709">COMP5709</mat-option>-->
+    </mat-select><br /><br />
+
+    <a routerLink="/UpdateProjectStatus"> Back to the list</a>
+    <!--  <button [disabled]="projectStored.unitCode == null" (click)="reject()">Approve</button>-->
+    <!--   <label>Update project status:</label>
+    <div class="dropdown">
+      <button class="dropbtn">Update Status</button>
+      <div class="dropdown-content">
+        <a> <button [disabled]="projectStored.unitCode == null || projectStored.project_id == null " (click)="approve()">Approve</button> </a>
+
+        <a>  <button (click)="reject()">Reject</button> </a>
+
+      </div>
+    </div>-->
+  </mat-card>
+</div>
+
+<!-- client project details
+1. enter title
+2. enter description
+3. sup mail id
+4. upload file
+5. project mode
+
+view details
+title
+edit/project table -->

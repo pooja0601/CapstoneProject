@@ -1,0 +1,65 @@
+.toolbar {
+  background-color: #333;
+}
+
+mat-icon {
+  color: white;
+}
+
+.notificationsBtn {
+  background-color: transparent;
+  border: none;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.badge {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  font-size: 12px;
+  line-height: 13px;
+  border-radius: 50%;
+  width: 20px;
+  height: 19px;
+  background-color: #ff4500;
+  border: 1px solid #333;
+  color: #ffffff;
+  text-align: center;
+}
+
+mat-card {
+  margin: 30px;
+}
+
+.red {
+  background-color: #d0caca8c !important;
+}
+
+b,
+strong {
+  font-weight: bolder;
+  color: black;
+  margin-left: 25px;
+  font-size: larger;
+}
+
+.container {
+  margin-top: 136px;
+  width: 100%;
+}
+
+.card strong {
+  margin-left: 5px;
+}
+
+.fixed-top {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 230px;
+  z-index: 1030;
+  height: 100px;
+}

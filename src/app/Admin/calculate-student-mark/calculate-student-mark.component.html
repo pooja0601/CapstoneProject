@@ -1,0 +1,142 @@
+<!--Main Navigation-->
+<header>
+
+  <nav class="navbar fixed-top navbar-expand-lg red scrolling-navbar">
+
+    <strong>
+      <span class="material-icons">menu</span>
+    </strong>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent2"
+            aria-controls="navbarSupportedContent2" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <strong>
+            Update student marks
+          </strong>
+        </li>
+
+      </ul>
+    </div>
+  </nav>
+
+</header>
+<!--Main Navigation-->
+<div>
+  <mat-card>
+    <form [formGroup]="profileForm" (submit)="submitForm()">
+      <h3><b>Project Proposal</b></h3><br>
+      <label>Week 3 report grade:</label><br />
+      <mat-form-field class="title" appearance="fill">
+        <input type="number" min="0" matInput formControlName="IndReport3" />
+      </mat-form-field>
+      <br />
+      <label>Week 4 report grade:</label><br />
+      <mat-form-field class="title" appearance="fill">
+        <input type="number" min="0" matInput formControlName="IndReport4" />
+      </mat-form-field>
+      <br />
+      <label>Week 5 report grade:</label>&nbsp;<br />
+      <mat-form-field class="title" appearance="fill">
+        <input type="number" min="0" matInput formControlName="IndReport5" />
+      </mat-form-field>
+      <br />
+      <label> Group proposal week 5 grade:</label>&nbsp;<br />
+      <mat-form-field class="title" appearance="fill">
+
+        <input type="number" min="0" matInput formControlName="GroupProposal5" />
+      </mat-form-field>
+      <br />
+      <hr />
+      <h3><b>Progress Report</b></h3>
+      <label>Week 6 report grade:</label><br />
+      <mat-form-field class="title" appearance="fill">
+
+        <input type="number" min="0" matInput formControlName="IndReport6" />
+      </mat-form-field>
+      <br />
+      <label>Week 7 report grade:</label><br />
+      <mat-form-field class="title" appearance="fill">
+
+        <input type="number" min="0" matInput formControlName="IndReport7" />
+      </mat-form-field>
+      <br />
+      <label>Week 8 report grade:</label><br />
+      <mat-form-field class="title" appearance="fill">
+
+        <input type="number" min="0" matInput formControlName="IndReport8" />
+      </mat-form-field>
+      <br />
+      <label>Group Progress week 9 grade:</label><br />
+      <mat-form-field class="title" appearance="fill">
+
+        <input type="number" matInput min="0" formControlName="GroupProgress9" />
+      </mat-form-field>
+      <br />
+      <hr />
+      <h3><b>Final Report</b></h3>
+      <label>Week 9 report grade:</label><br />
+      <mat-form-field class="title" appearance="fill">
+
+        <input type="number" min="0" matInput formControlName="IndReport9" />
+      </mat-form-field>
+      <br />
+      <label>Week 10 report grade:</label><br />
+      <mat-form-field class="title" appearance="fill">
+
+        <input type="number" matInput formControlName="IndReport10" />
+      </mat-form-field>
+      <br />
+      <label>Week 11 report grade:</label><br />
+      <mat-form-field class="title" appearance="fill">
+
+        <input matInput formControlName="IndReport11" />
+      </mat-form-field>
+      <br />
+      <label>Week 12 report grade:</label><br />
+      <mat-form-field class="title" appearance="fill">
+
+        <input type="number" min="0" matInput formControlName="IndReport12" />
+      </mat-form-field>
+      <br />
+      <label>Week 13 report grade:</label><br />
+      <mat-form-field class="title" appearance="fill">
+
+        <input type="number" min="0" matInput formControlName="IndReport13" />
+      </mat-form-field>
+      <br />
+      <label>Final group week 13 grade:</label><br />
+      <mat-form-field class="title" appearance="fill">
+
+        <input type="number" min="0" matInput formControlName="FinalGroup13" />
+      </mat-form-field>
+      <br />
+      <hr />
+      <h3><b>Presentation</b></h3>
+      <label>Group Presentation grade:</label><br />
+      <mat-form-field class="title" appearance="fill">
+
+        <input type="number" min="0" matInput formControlName="Group_Presentation" />
+      </mat-form-field>
+      <br /><br />
+      <button class="btn">Submit</button>&nbsp;&nbsp;&nbsp;&nbsp;
+
+      <br /><br />
+    </form>
+    <a routerLink="/ViewStudentsMarks"> Back to the list</a>
+
+  </mat-card>
+
+</div>
+
+<div>
+
+
+  <mat-card *ngFor="let f of formula" class="example-card">
+    <mat-card-header>
+      <mat-card-title>{{f.Project_Proposal_Weight}}</mat-card-title>
+    </mat-card-header>
+  </mat-card>
+</div>
